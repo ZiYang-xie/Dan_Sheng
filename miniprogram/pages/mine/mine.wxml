@@ -5,7 +5,7 @@
 <i-tab-bar current="{{ current }}" color="black" bindchange="handleChange" fixed>
     <i-tab-bar-item key="secondHand" icon="shop_fill" current-icon="shop_fill" title="二手交易"></i-tab-bar-item>
     <i-tab-bar-item key="schoolTalk" icon="group" current-icon="group_fill" title="校园讨论"></i-tab-bar-item>
-		 <i-tab-bar-item key="add" icon="add" current-icon="add" title="发布"></i-tab-bar-item>
+	<i-tab-bar-item key="add" img="../addIcon/add.png" current-img="../addIcon/addActive.png" title=""></i-tab-bar-item>
     <i-tab-bar-item key="information" icon="remind" current-icon="remind_fill" title="我的消息"></i-tab-bar-item>
-    <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+    <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="个人中心"></i-tab-bar-item>
 </i-tab-bar>
