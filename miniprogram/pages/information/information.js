@@ -8,6 +8,32 @@ Page({
     current:"information"
   },
 
+  handleChange ({ detail }) {
+    this.setData({
+        current: detail.key,
+    });
+    var _current=detail.key;
+    switch(_current){
+      case "secondHand":{
+        wx.redirectTo({
+          url: '../secondHand/secondHand',
+        })
+        break;
+      };
+      case "schoolTalk":{
+        wx.redirectTo({
+          url: '../schoolTalk/schoolTalk',
+        })
+        break;
+      };
+      case "mine":{
+        wx.redirectTo({
+          url: '../mine/mine',
+        })
+        break;
+      };
+    }
+},
   /**
    * 生命周期函数--监听页面加载
    */

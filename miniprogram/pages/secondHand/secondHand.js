@@ -15,19 +15,26 @@ Page({
     this.setData({
         current: detail.key,
     });
-    switch(current){
-      case "secondHand":{
-        wx.navigateTo({
-          url: '../secondHand/secondHand',
-        })
-        break;
-      };
+    var _current=detail.key;
+    switch(_current){
       case "schoolTalk":{
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../schoolTalk/schoolTalk',
         })
         break;
-      }
+      };
+      case "information":{
+        wx.redirectTo({
+          url: '../information/information',
+        })
+        break;
+      };
+      case "mine":{
+        wx.redirectTo({
+          url: '../mine/mine',
+        })
+        break;
+      };
     }
 },
 
