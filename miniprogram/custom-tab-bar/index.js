@@ -23,9 +23,6 @@ Page({
   },
 
   barChange({detail}) {
-    this.setData({
-      current: detail.key,
-    });
     var _current = detail.key;
     switch (_current) {
       case "secondHand": {
