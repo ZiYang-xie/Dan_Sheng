@@ -7,13 +7,42 @@
     "pages/release/releaseGoods/releaseGoods",
     "pages/release/releaseTalk/releaseTalk"
   ],
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+      "pagePath": "pages/secondHand/secondHand",
+      "text": "二手交易"
+      }, 
+      {
+      "pagePath": "pages/schoolTalk/schoolTalk",
+      "text": "校园讨论"
+      },
+      {
+        "pagePath": "pages/information/information",
+        "text": "我的消息"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "usingComponents": {
+
+  },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "旦生校园",
+    "navigationBarTitleText": "旦生",
     "navigationBarTextStyle": "black"
   },
+
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }

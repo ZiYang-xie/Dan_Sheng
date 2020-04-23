@@ -10,7 +10,7 @@
   -webkit-box-direction: normal;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 20px;
+  padding-bottom: 16px;
 }
 
 .i-tab-bar-item-icon {
@@ -30,13 +30,15 @@
   -webkit-box-pack: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 55px;
-  height: 55px;
-  margin-bottom: 20px;
+  width: 118rpx;
+  max-width: 80px;
+  height: 118rpx;
+  max-height: 80px;
+  margin-bottom: 70rpx;
 }
 
 .i-tab-bar-item-title {
-  font-size: 12px;
+  font-size: 13px;
   margin: 3px 0 0;
   line-height: 1;
   text-align: center;

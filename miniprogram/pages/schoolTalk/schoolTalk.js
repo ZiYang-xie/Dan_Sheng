@@ -5,78 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current:"schoolTalk",
-    visible: false,
-    chooseButton: [{
-        name: '发布二手商品',
-        icon: 'shop_fill'
-      },
-      {
-        name: '发布校园讨论',
-        icon: 'group_fill'
-      },
-      {
-        name: '取消',
-        icon: 'close'
-      }
-    ],
   },
-
-  barChange ({ detail }) {
-    this.setData({
-        current: detail.key,
-    });
-    var _current=detail.key;
-    switch(_current){
-      case "secondHand":{
-        wx.redirectTo({
-          url: '../secondHand/secondHand',
-        })
-        break;
-      };
-      case "add": {
-        this.setData({
-          visible: true,
-        });
-        break;
-      };
-      case "information":{
-        wx.redirectTo({
-          url: '../information/information',
-        })
-        break;
-      };
-      case "mine":{
-        wx.redirectTo({
-          url: '../mine/mine',
-        })
-        break;
-      };
-    }
-},
-
-handleAddClick({detail}){
-  switch(detail.index){
-    case 0:{
-      wx.navigateTo({
-        url: '../release/releaseGoods/releaseGoods',
-      })
-      break;
-    };
-    case 1:{
-      wx.navigateTo({
-        url: '../release/releaseTalk/releaseTalk',
-      })
-      break;
-    };
-    case 2:{
-      this.setData({
-        visible: false,
-      });
-      break;
-    };
-  }
-},
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -95,7 +25,11 @@ handleAddClick({detail}){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        current:'schoolTalk'
+      })
+    }
   },
 
   /**

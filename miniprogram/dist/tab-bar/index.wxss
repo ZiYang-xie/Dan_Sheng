@@ -1,7 +1,8 @@
 .i-tab-bar {
   display: flex;
   width: 100%;
-  height: 70px;
+  height: 175rpx;
+  max-height: 110px;
   box-sizing: border-box;
   position: relative;
   justify-content: space-around;

@@ -1,0 +1,53 @@
+
+	<!-- 用户 openid -->
+	<!-- <view class="userinfo">
+			<button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})" size="default"></button>
+			<view class="userinfo-nickname-wrapper">
+				<button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+			</view>
+		</view> -->
+	<!-- 上传图片 -->
+	<!-- <view class="uploader">
+			<view class="uploader-text" bindtap="doUpload">
+				<text>上传图片</text>
+			</view>
+			<view class="uploader-container" wx:if="{{imgUrl}}">
+				<image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+			</view>
+		</view> -->
+	<!-- 操作数据库 -->
+	<!-- <view class="uploader">
+			<navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+				<text>前端操作数据库</text>
+			</navigator>
+		</view> -->
+	<!-- 即时通信 -->
+	<!-- <view class="uploader">
+			<navigator url="../im/im" open-type="navigate" class="uploader-text">
+				<text>即时通信 Demo</text>
+			</navigator>
+		</view> -->
+	<!-- 新建云函数 -->
+	<!-- <view class="uploader">
+			<navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
+				<text>快速新建云函数</text>
+			</navigator>
+		</view> -->
+	<!-- 云调用 -->
+	<!-- <view class="uploader">
+			<navigator url="../openapi/openapi" open-type="navigate" class="uploader-text">
+				<text>云调用</text>
+			</navigator>
+		</view> -->
+		
+<i-panel>
+<i-modal title="发布" visible="{{ visible }}" actions="{{ chooseButton }}" action-mode="{{ vertical }}" bind:click="handleAddClick"></i-modal>
+</i-panel>
+
+<i-tab-bar current="{{ current }}" color="black" bindchange="barChange" fixed>
+		<i-tab-bar-item key="secondHand" icon="shop_fill" current-icon="shop_fill" title="二手交易"></i-tab-bar-item>
+		<i-tab-bar-item key="schoolTalk" icon="group" current-icon="group_fill" title="校园讨论"></i-tab-bar-item>
+		<i-tab-bar-item key="add" img="../addIcon/add.png" current-img="../addIcon/addActive.png" title=""></i-tab-bar-item>
+		<i-tab-bar-item key="information" icon="remind" current-icon="remind_fill" title="我的消息"></i-tab-bar-item>
+		<i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="个人中心"></i-tab-bar-item>
+</i-tab-bar>
