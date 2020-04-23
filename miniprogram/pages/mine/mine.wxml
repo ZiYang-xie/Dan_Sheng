@@ -1,4 +1,11 @@
-<!--miniprogram/pages/mine/mine.wxml-->
-
-<view>我的消息界面</view>
-
+<i-cell-group>
+	<i-cell>
+		<i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large"></i-avatar>
+    <view>吕昌泽</view>
+	</i-cell>
+	<i-cell title="我的关注" is-link></i-cell>
+	<i-cell title="我的发布" is-link></i-cell>
+	<i-cell title="开关">
+		<switch slot="footer" checked />
+	</i-cell>
+</i-cell-group>
