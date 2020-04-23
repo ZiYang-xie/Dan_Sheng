@@ -1,5 +1,5 @@
 <i-panel>
-	<view>二手交易界面</view>
+	<view class="title">二手交易界面</view>
 	<!-- 用户 openid -->
 	<!-- <view class="userinfo">
 			<button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})" size="default"></button>
@@ -40,7 +40,7 @@
 				<text>云调用</text>
 			</navigator>
 		</view> -->
-<i-modal visible="{{ visible }}" actions="{{ chooseButton }}" action-mode="{{ vertical }}" bind:click="handleAddClick"></i-modal>
+<i-modal title="发布" visible="{{ visible }}" actions="{{ chooseButton }}" action-mode="{{ vertical }}" bind:click="handleAddClick"></i-modal>
 </i-panel>
 
 <i-tab-bar current="{{ current }}" color="black" bindchange="barChange" fixed>

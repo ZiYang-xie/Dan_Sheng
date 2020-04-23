@@ -12,15 +12,18 @@ Page({
     visible: false,
     chooseButton: [{
         name: '发布二手商品',
-        icon: 'shop_fill'
+        icon: 'shop_fill',
+        color: '#130f40'
       },
       {
         name: '发布校园讨论',
-        icon: 'group_fill'
+        icon: 'group_fill',
+        color: '#130f40'
       },
       {
         name: '取消',
-        icon: 'close'
+        icon: 'close',
+        color: '#130f40'
       }
     ],
   },
