@@ -5,10 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current:"mine"
+    current:"mine",
+    visible: false,
+    chooseButton: [{
+        name: '发布二手商品',
+        icon: 'shop_fill'
+      },
+      {
+        name: '发布校园讨论',
+        icon: 'group_fill'
+      },
+      {
+        name: '取消',
+        icon: 'close'
+      }
+    ],
   },
 
-  handleChange ({ detail }) {
+  barChange ({ detail }) {
     this.setData({
         current: detail.key,
     });
@@ -26,6 +40,12 @@ Page({
         })
         break;
       };
+      case "add": {
+        this.setData({
+          visible: true,
+        });
+        break;
+      };
       case "information":{
         wx.redirectTo({
           url: '../information/information',
@@ -33,6 +53,29 @@ Page({
         break;
       };
     }
+},
+
+handleAddClick({detail}){
+  switch(detail.index){
+    case 0:{
+      wx.navigateTo({
+        url: '../release/releaseGoods/releaseGoods',
+      })
+      break;
+    };
+    case 1:{
+      wx.navigateTo({
+        url: '../release/releaseTalk/releaseTalk',
+      })
+      break;
+    };
+    case 2:{
+      this.setData({
+        visible: false,
+      });
+      break;
+    };
+  }
 },
   /**
    * 生命周期函数--监听页面加载

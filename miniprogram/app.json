@@ -3,7 +3,9 @@
     "pages/secondHand/secondHand",
     "pages/mine/mine",
     "pages/schoolTalk/schoolTalk",
-    "pages/information/information"
+    "pages/information/information",
+    "pages/release/releaseGoods/releaseGoods",
+    "pages/release/releaseTalk/releaseTalk"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
