@@ -1,10 +1,12 @@
 <i-cell-group>
 	<i-cell>
 		<i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large"></i-avatar>
-    <view>吕昌泽</view>
+    <view style="margin-top:20rpx">吕昌泽</view>
 	</i-cell>
+	<i-cell title="我的标签" is-link></i-cell>
 	<i-cell title="我的关注" is-link></i-cell>
 	<i-cell title="我的发布" is-link></i-cell>
+  <i-cell title="信誉值" is-link></i-cell>
 	<i-cell title="开关">
 		<switch slot="footer" checked />
 	</i-cell>
