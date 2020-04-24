@@ -1,12 +1,7 @@
-
-<i-card title="商品名" extra="具体描述" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="content" >价格</view>
-    <view slot="content">卖家</view>
-    <button slot="content">查看详情</button>
-</i-card>
-
-<i-card title="商品名" extra="具体描述" thumb="../../images/code-cloud-callback-config.png">
-    <view slot="content" >价格</view>
-    <view slot="content">卖家</view>
-    <button slot="content">查看详情</button>
-</i-card>
+<block wx:for="{{recommendGoods}}" data-item="item">
+	<i-card title="{{item.goodName}}" extra="{{item.goodIntroduction}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+		<view slot="content">{{item.goodPrice}}</view>
+		<view slot="content">{{item.goodSeller}}</view>
+		<button slot="content">查看详情</button>
+	</i-card>
+</block>
