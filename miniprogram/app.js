@@ -18,6 +18,7 @@ App({
     this.globalData = {
       userName:"吕昌泽",
       currentDetailGood:"",
+      currentDetailTalk:"",
       tabBarHidden: false,
     }
   }

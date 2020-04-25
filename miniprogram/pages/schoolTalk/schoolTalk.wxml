@@ -1,1 +1,18 @@
-<view>校园讨论界面</view>
+<i-tabs current="{{ currentSubPage }}" scroll bindchange="handleChangeScroll">
+    <i-tab key="recommend" title="推荐"></i-tab>
+    <i-tab key="focus" title="关注"></i-tab>
+    <i-tab key="hotRank" title="热榜"></i-tab>
+    <i-tab key="chooseCourse" title="选课"></i-tab>
+    <i-tab key="studyAbroad" title="留学"></i-tab>
+    <i-tab key="entertainment" title="娱乐"></i-tab>
+    <i-tab key="makeFriends" title="交友"></i-tab>
+    <i-tab key="others" title="其他"></i-tab>
+</i-tabs>
+
+<block wx:for="{{currentTalks}}" data-item="item">
+	<i-card title="{{item.talkName}}" extra="ID: {{item.talkId}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+	  <view slot="content">{{item.talkIntroduction}}</view>
+    <view slot="content">{{item.talkPublisher}}</view>
+		<button slot="content" bindtap="gotoDetail" data-talk_id="{{item.talkId}}">查看详情</button>
+	</i-card>
+</block>

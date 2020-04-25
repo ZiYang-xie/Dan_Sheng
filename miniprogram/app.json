@@ -6,7 +6,8 @@
     "pages/information/information",
     "pages/release/releaseGoods/releaseGoods",
     "pages/release/releaseTalk/releaseTalk",
-    "pages/secondHand/goodDetail/goodDetail"
+    "pages/secondHand/goodDetail/goodDetail",
+    "pages/schoolTalk/talkDetail/talkDetail"
   ],
   "tabBar": {
     "custom": true,
