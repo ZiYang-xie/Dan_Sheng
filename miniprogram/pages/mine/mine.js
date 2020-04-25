@@ -1,12 +1,68 @@
 // miniprogram/pages/mine/mine.js
+var app = getApp();
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userName:"旦生",
+    userImgsrc:"../../style/icon/mainIcon/mainIcon.png",
+    visible: false,
+        actions: [
+            {
+              name: '相册',
+              icon: 'picture'
+            },
+            {
+              name: '拍照',
+              icon:'camera'
+            },
+            {
+              name: '取消',
+              icon: 'close',
+              color: '#959595'
+            }
+        ],
   },
-  
+  /**
+   * 用户点击改变头像事件
+   */
+  changeUserImg: function(event){
+    app.globalData.tabBarHidden = true;
+    this.setData({
+      visible: true
+    });
+    console.log(app.globalData.tabBarHidden)
+  },
+  /**
+   * 用户取消点击修改头像事件
+   */
+  handleImgClick({detail}){
+    app.globalData.tabBarHidden = false;
+    switch(detail.index){
+      case 0:{
+        wx.navigateTo({
+          url: '../release/releaseGoods/releaseGoods',
+        })
+        break;
+      };
+      case 1:{
+        wx.navigateTo({
+          url: '../release/releaseTalk/releaseTalk',
+        })
+        break;
+      };
+      case 2:{
+        this.setData({
+          visible: false,
+        });
+        break;
+      };
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

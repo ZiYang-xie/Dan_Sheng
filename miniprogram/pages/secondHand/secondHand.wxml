@@ -1,7 +1,17 @@
-<block wx:for="{{recommendGoods}}" data-item="item">
+<i-tabs current="{{currentSubPage}}" bindchange="changeSubPage">
+	<i-tab key="recommend" title="推荐"></i-tab>
+	<i-tab key="hotRank" title="热榜"></i-tab>
+</i-tabs>
+
+<form bindsubmit="formSubmit">
+	<input name="searchValue" placeholder="请输入搜索的内容"/>
+	<button formType="submit">搜索</button>
+</form>
+
+<block wx:for="{{currentGoods}}" data-item="item">
 	<i-card title="{{item.goodName}}" extra="{{item.goodIntroduction}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
 		<view slot="content">{{item.goodPrice}}</view>
 		<view slot="content">{{item.goodSeller}}</view>
-		<button slot="content">查看详情</button>
+		<button slot="content" bindtap="gotoDetail" data-good_name="{{item.goodName}}">查看详情</button>
 	</i-card>
 </block>

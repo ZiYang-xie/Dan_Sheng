@@ -3,26 +3,36 @@ const app = getApp()
 
 Page({
   data: {
+    avatarUrl: './user-unlogin.png',
+    userInfo: {},
+    logged: false,
+    takeSession: false,
+    requestResult: '',
     visible: false,
+    tabBarHidden:app.globalData.tabBarHidden,
     chooseButton: [{
         name: '发布二手商品',
         icon: 'shop_fill',
-        color: '#130f40'
+        color: '#000'
       },
       {
         name: '发布校园讨论',
         icon: 'group_fill',
-        color: '#130f40'
+        color: '#000'
       },
       {
         name: '取消',
         icon: 'close',
-        color: '#130f40'
+        color: '#959595'
       }
     ],
   },
 
   barChange({detail}) {
+    this.setData({
+      current: detail.key,
+    });
+
     var _current = detail.key;
     switch (_current) {
       case "secondHand": {

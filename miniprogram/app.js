@@ -15,7 +15,11 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      userName:"吕昌泽",
+      currentDetailGood:"",
+      tabBarHidden: false,
+    }
   }
 })
 

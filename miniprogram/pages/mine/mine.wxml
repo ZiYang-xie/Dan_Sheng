@@ -1,13 +1,22 @@
 <i-cell-group>
-	<i-cell>
-		<i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large"></i-avatar>
-    <view style="margin-top:20rpx">吕昌泽</view>
+	<i-cell class="userBlock">
+		<view class="userImgContainer">
+			<image class="userImgCover" src="../../style/icon/userImg/userImg-cover.png" bindtap="changeUserImg"></image>
+			<image class="userImg" src="{{userImgsrc}}"></image>
+		</view>
+    <view class="userName">
+			<p>{{userName}}</p>
+		</view>
 	</i-cell>
-	<i-cell title="我的标签" is-link></i-cell>
-	<i-cell title="我的关注" is-link></i-cell>
-	<i-cell title="我的发布" is-link></i-cell>
-  <i-cell title="信誉值" is-link></i-cell>
+	<i-cell title="个人信息" is-link="true" url="./detail/detail"></i-cell>
+	<i-cell title="我的标签" is-link="true" url="./tag/tag"></i-cell>
+	<i-cell title="我的关注" is-link="true" url="./subscription/subscription"></i-cell>
+	<i-cell title="我的发布" is-link="true" url="./issue/issue"></i-cell>
+  <i-cell title="信誉值" is-link="true" url="./credit/credit"></i-cell>
 	<i-cell title="开关">
 		<switch slot="footer" checked />
 	</i-cell>
 </i-cell-group>
+
+<!--更换头像-->
+<i-modal class="modalImg" title="请选择照片来源" visible="{{ visible }}" actions="{{ actions }}" action-mode="{{ vertical }}" bind:click="handleImgClick"></i-modal>
