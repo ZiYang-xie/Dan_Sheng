@@ -1,1 +1,57 @@
 /* danSheng/pages/index.wxss */
+.tabs view{
+  width: 250rpx !important;
+}
+
+.cards{
+  margin: 0px 18px 15px !important;
+  box-shadow: 0px 0px 10px rgb(0,0,0,0.1);
+}
+
+.goods{
+  margin-top: 70px;
+}
+
+.search-box{
+  display: inline-block;
+  position: absolute;
+  top: 46px;
+  left: 50%;
+  transform: translate(-50%);
+  height: 60rpx;
+  max-height: 40px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding: 6px;
+  border-radius: 50px;
+  background: rgba(0,0,0,0.1);
+}
+
+.search-btn{
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  width: 28px !important;
+  height: 28px !important;
+}
+
+.search-btn image{
+  width: 28px;
+  height: 28px;
+}
+
+.search-txt{
+  border:none;
+  background: none;
+  outline: none;
+  font-size: 16px;
+  float: left;
+  padding: 0;
+  height: 65rpx;
+  width: 0;
+  max-height: 40px;
+  transition: 0.4s;
+  vertical-align: middle;
+}

@@ -1,5 +1,5 @@
 Component({
-    externalClasses: ['i-class'],
+    externalClasses: ['i-class','i-class-img','i-class-content','i-class-footer'],
 
     options: {
         multipleSlots: true
