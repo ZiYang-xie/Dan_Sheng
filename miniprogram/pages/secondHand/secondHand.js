@@ -64,6 +64,7 @@ Page({
         console.log(res.data)
       }
     });
+    
   },
 
   onShow: function () {
@@ -99,7 +100,4 @@ Page({
     })
   },
 
-  btnAni: function(e){
-      var txt = document.getElementsByClassName("search-box")
-  }
 })

@@ -1,6 +1,6 @@
 /* danSheng/pages/index.wxss */
 .tabs view{
-  width: 250rpx !important;
+  width: 280rpx !important;
 }
 
 .cards{
@@ -19,6 +19,7 @@
   left: 50%;
   transform: translate(-50%);
   height: 60rpx;
+  width: 600rpx;
   max-height: 40px;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -28,30 +29,33 @@
 }
 
 .search-btn{
-  float: right;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-  width: 28px !important;
-  height: 28px !important;
+  position: inherit;
+  padding-left: 0px;
+  width: 60rpx;
+  max-width: 35px;
+  height: 60rpx;
+  max-height: 35px;
+  
 }
 
+
 .search-btn image{
-  width: 28px;
-  height: 28px;
+  width: 50rpx;
+  max-width: 35px;
+  height: 50rpx;
+  max-height: 35px;
 }
 
 .search-txt{
   border:none;
   background: none;
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
   float: left;
-  padding: 0;
+  margin-left: 40rpx;
   height: 65rpx;
-  width: 0;
   max-height: 40px;
-  transition: 0.4s;
-  vertical-align: middle;
+  width: 450rpx;
+  min-width: 110px;
 }
+
