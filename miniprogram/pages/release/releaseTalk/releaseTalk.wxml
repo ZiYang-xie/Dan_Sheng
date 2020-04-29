@@ -1,2 +1,7 @@
-<!--miniprogram/pages/releaseTalk/releaseTalk.wxml-->
-	<view>发布校园讨论界面</view>
+<i-panel title="发布校园讨论">
+	<form bindsubmit="formSubmit">
+		<i-input name="talkName" title="讨论标题" type="textarea" placeholder="请输入讨论标题（少于20字）" maxlength="20" />
+		<i-input name="talkIntroduction" title="讨论正文" type="textarea" placeholder="请输入讨论正文" />
+		<button class="submitButton" formType="submit">发布</button>
+	</form>
+</i-panel>
