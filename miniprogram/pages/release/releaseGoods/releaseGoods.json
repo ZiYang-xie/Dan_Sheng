@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-input": "../../../dist/input/index",
+    "i-drawer": "../../../dist/drawer/index",
+    "i-button": "../../../dist/button/index",
+    "i-radio-group": "../../dist/radio-group/index",
+    "i-radio": "../../dist/radio/index"
+  }
 }
