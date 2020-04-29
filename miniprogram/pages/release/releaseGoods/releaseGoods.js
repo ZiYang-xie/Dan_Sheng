@@ -5,7 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showLeftCata: false,
+    goodType:[{
+      id: 1,
+      name: '文具用品',
+    }, {
+      id: 2,
+      name: '书籍'
+    }, {
+      id: 3,
+      name: '学习资料'
+    }, {
+      id: 4,
+      name: '宿舍日用',
+    }, {
+      id: 5,
+      name: '健身器材',
+    }, {
+      id: 6,
+      name: '3C数码',
+    }, {
+      id: 7,
+      name: '个护美妆',
+    }, {
+      id: 8,
+      name: '工艺礼品',
+    }, {
+      id: 9,
+      name: '其他',
+    }
+    ],
+  current: '',
+  position: 'left',
+  },
 
+  handleCataChange({ detail = {} }) {
+    this.setData({
+        current: detail.value
+    });
+  },
+
+  toggleLeft1() {
+    this.setData({
+        showLeftCata: !this.data.showLeftCata
+    });
   },
 
   /**

@@ -1,1 +1,24 @@
 /* miniprogram/pages/releaseGoods/releaseGoods.wxss */
+.mainInfo{
+  height: 400rpx;
+}
+
+.textarea{
+  width: 90%;
+  height: 5em;
+}
+
+.textarea-wrp {
+  padding: 20px 25rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.CataBtn{
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.cataRadio{
+  width: 250rpx;
+}
