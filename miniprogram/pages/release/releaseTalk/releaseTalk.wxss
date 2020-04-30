@@ -1,1 +1,7 @@
 /* miniprogram/pages/releaseTalk/releaseTalk.wxss */
+.submitButton {
+  width: 240rpx;
+  height: 70rpx;
+  color: white;
+  background-color: #ff9900;
+}

@@ -1,13 +1,43 @@
 // miniprogram/pages/releaseTalk/releaseTalk.js
+  const { $Message } = require('../../../dist/base/index');
+  const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    talkName:'',
+    talkIntroduction:'',
   },
 
+  formSubmit: function (e) {
+    var talkName = e.detail.value.talkName;
+    var talkIntroduction = e.detail.value.talkIntroduction;
+    wx.request({
+      //将搜索内容发给后端
+      url: '/releaseTalk_submit',
+      data: {
+        talkPublisher: app.globalData.userName,
+        talkName:talkName,
+        talkIntroduction:talkIntroduction,
+      },
+      success(res) {
+        $Message({
+          content: '发布成功',
+          type: 'success'
+      });
+      },
+      // fail(res) {
+      //   $Message({
+      //     content: '发布失败，请检查网络！',
+      //     type: 'error'
+      // });
+      // }
+    });
+    console.log('form发生了submit事件，携带数据为：',talkName)
+    console.log('form发生了submit事件，携带数据为：',talkIntroduction)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
