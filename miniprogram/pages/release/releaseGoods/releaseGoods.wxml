@@ -1,10 +1,23 @@
 <!--miniprogram/pages/releaseGoods/releaseGoods.wxml-->
 <i-panel>
+	<view class="input-wrp">
+	<input class="input-title" value="{{ goodName }}" autofocus placeholder="物品名称" />
+	</view>
+	<view class="divLine-top"></view>
 	<view class="textarea-wrp">
-      <textarea class="textarea" placeholder="请输入发布物品信息" auto-focus="true" />
+      <textarea class="textarea" placeholder="请输入物品简介" auto-focus="true" />
   </view>
-	<i-button i-class="CataBtn" long="true" inline="true" bind:click="toggleLeft1" type="ghost">物品分类</i-button>
-	<i-drawer mode="left" visible="{{showLeftCata}}" bind:close="toggleLeft1">
+	
+	<view class="divLine-top"></view>
+	<i-cell-group>
+		<i-cell class="Btn" title="物品分类" bind:click="toggleLeft1" is-link><i-icon i-class="cataIcon" slot="icon" type="label" size="28" color="#80848f" /></i-cell>
+		<i-cell class="Btn" title="物品价格" bind:click="toggleLeft2" is-link>
+			<i-icon i-class="cataIcon" slot="icon" type="financial_fill" size="28" color="#80848f" />
+			<p class="Price">{{goodPrice}}</p>
+		</i-cell>
+	</i-cell-group>
+
+	<i-drawer mode="right" visible="{{showLeftCata}}" bind:close="toggleLeft1">
 			<view class="demo-container">
 					<i-radio-group current="{{current}}" bindchange="handleCataChange">
 						<i-radio i-class="cataRadio" wx:for="{{goodType}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}" color="#FE9A2F">

@@ -3,22 +3,46 @@
   height: 400rpx;
 }
 
-.textarea{
-  width: 90%;
-  height: 5em;
+.input-title{
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.textarea-wrp {
-  padding: 20px 25rpx;
+.input-wrp{
+  padding: 20px 15px;
   width: 100%;
   background-color: #fff;
 }
 
-.CataBtn{
+.textarea{
+  width: 90%;
+  height: 6em;
+  font-size: 14px;
+}
+
+.textarea-wrp {
+  padding: 20px 15px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.Btn{
   width: 100% !important;
-  text-align: center !important;
+  color: black !important;
+  background: white !important;
+  border-radius: 0px !important;
 }
 
 .cataRadio{
   width: 250rpx;
+}
+
+.divLine-top{
+  background: rgba(230, 230, 230, 0.1);
+  width: 96%;
+  transform: translate(2%);
+  height: 1px;
+}
+
+.cataIcon{
 }

@@ -11,7 +11,7 @@ Page({
       name: '文具用品',
     }, {
       id: 2,
-      name: '书籍'
+      name: '二手书籍'
     }, {
       id: 3,
       name: '学习资料'
@@ -37,6 +37,7 @@ Page({
     ],
   current: '',
   position: 'left',
+  goodPrice: ''
   },
 
   handleCataChange({ detail = {} }) {
