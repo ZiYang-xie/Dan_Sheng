@@ -1,7 +1,31 @@
-<i-panel title="发布校园讨论">
-	<form bindsubmit="formSubmit">
-		<i-input name="talkName" title="讨论标题" type="textarea" placeholder="请输入讨论标题（少于20字）" maxlength="20" />
-		<i-input name="talkIntroduction" title="讨论正文" type="textarea" placeholder="请输入讨论正文" />
-		<button class="submitButton" formType="submit">发布</button>
-	</form>
+<!--miniprogram/pages/releasetalks/releasetalks.wxml-->
+<i-panel>
+	<!--物品信息填写input-->
+	<view class="input-wrp">
+	<input class="input-title" name="talkName" auto-focus="true" placeholder="讨论名称" bindinput="talkNameInput"/>
+	</view>
+
+	<view class="divLine-top"></view>
+	<view class="textarea-wrp">
+      <textarea  class="textarea" name="talkIntroduction" placeholder="请输入讨论内容" bindinput="talkIntroductionInput"/>
+  </view>
+	
+	<view class="divLine-top"></view><!--分割线-->
+	<!--物品信息选择cell-->
+	<i-cell-group>
+		<i-cell class="Btn" title="讨论分类" bind:click="toggleRight1" is-link><i-icon i-class="cataIcon" slot="icon" type="label" size="28" color="#80848f" /></i-cell>
+
+	</i-cell-group>
+
+	<!--物品分类drawer-->
+	<i-drawer mode="right" visible="{{showRightCata}}" bind:close="toggleRight1">
+			<view class="demo-container">
+					<i-radio-group current="{{talkClassification}}" bindchange="handleCataChange">
+						<i-radio i-class="cataRadio" wx:for="{{talkType}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}" color="#FE9A2F">
+						</i-radio>
+					</i-radio-group>
+			</view>
+	</i-drawer>
 </i-panel>
+<i-button bind:click="publishTalk" type="error">发布校园讨论</i-button>
+<i-message id="message" />

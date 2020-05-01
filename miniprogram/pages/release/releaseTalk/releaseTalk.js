@@ -1,43 +1,98 @@
 // miniprogram/pages/releaseTalk/releaseTalk.js
-  const { $Message } = require('../../../dist/base/index');
-  const app = getApp();
+const {$Message} = require('../../../dist/base/index');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    talkName:'',
-    talkIntroduction:'',
+    showRightCata: false,
+    talkType: [{
+        id: 1,
+        name: '选课',
+      },
+      {
+        id: 2,
+        name: '留学'
+      },
+      {
+        id: 3,
+        name: '娱乐'
+      },
+      {
+        id: 4,
+        name: '交友',
+      },
+      {
+        id: 5,
+        name: '其他',
+      },
+    ],
+    talkName: '',
+    talkIntroduction: '',
+    talkClassification: '',
+    position: 'left',
   },
 
-  formSubmit: function (e) {
-    var talkName = e.detail.value.talkName;
-    var talkIntroduction = e.detail.value.talkIntroduction;
+  talkNameInput: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      talkName: e.detail.value,
+    })
+  },
+
+  talkIntroductionInput: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      talkIntroduction: e.detail.value,
+    })
+  },
+
+  handleCataChange({
+    detail = {}
+  }) {
+    console.log(detail.value);
+    this.setData({
+      talkClassification: detail.value
+    });
+  },
+
+  toggleRight1() {
+    this.setData({
+      showRightCata: !this.data.showRightCata
+    });
+  },
+
+  publishTalk() {
+    console.log(this.data.talkName);
+    console.log(this.data.talkIntroduction);
+    console.log(this.data.talkClassification);
+    if (this.data.talkName === '' || this.data.talkIntroduction === '' || this.data.talkClassification === '') {
+      $Message({
+        content: '讨论名称、讨论简介、讨论分类均不得为空',
+        type: 'error'
+      });
+      return;
+    }
+
     wx.request({
-      //将搜索内容发给后端
-      url: '/releaseTalk_submit',
-      data: {
-        talkPublisher: app.globalData.userName,
-        talkName:talkName,
-        talkIntroduction:talkIntroduction,
+      url: 'releaseTalk_release',
+      data:{
+        talkName:this.data.talkName,
+        talkIntroduction:this.data.talkIntroduction,
+        talkClassification:this.data.talkClassification,
       },
       success(res) {
+        //得到返回的数据
         $Message({
           content: '发布成功',
           type: 'success'
-      });
-      },
-      // fail(res) {
-      //   $Message({
-      //     content: '发布失败，请检查网络！',
-      //     type: 'error'
-      // });
-      // }
-    });
-    console.log('form发生了submit事件，携带数据为：',talkName)
-    console.log('form发生了submit事件，携带数据为：',talkIntroduction)
+        });
+      }
+    })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */

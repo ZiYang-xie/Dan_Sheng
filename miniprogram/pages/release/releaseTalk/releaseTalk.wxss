@@ -1,7 +1,48 @@
-/* miniprogram/pages/releaseTalk/releaseTalk.wxss */
-.submitButton {
-  width: 240rpx;
-  height: 70rpx;
-  color: white;
-  background-color: #ff9900;
+
+.mainInfo{
+  height: 400rpx;
+}
+
+.input-title{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.input-wrp{
+  padding: 20px 15px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.textarea{
+  width: 90%;
+  height: 6em;
+  font-size: 14px;
+}
+
+.textarea-wrp {
+  padding: 20px 15px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.Btn{
+  width: 100% !important;
+  color: black !important;
+  background: white !important;
+  border-radius: 0px !important;
+}
+
+.cataRadio{
+  width: 250rpx;
+}
+
+.divLine-top{
+  background: rgba(230, 230, 230, 0.1);
+  width: 96%;
+  transform: translate(2%);
+  height: 1px;
+}
+
+.cataIcon{
 }
