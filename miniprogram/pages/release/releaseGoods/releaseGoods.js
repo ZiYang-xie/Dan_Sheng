@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showLeftCata: false,
-    goodType:[{
+    showRightCata: false,
+    goodType: [{
       id: 1,
       name: '文具用品',
     }, {
@@ -33,22 +33,40 @@ Page({
     }, {
       id: 9,
       name: '其他',
-    }
-    ],
-  current: '',
-  position: 'left',
-  goodPrice: ''
+    }],
+    goodName:'',
+    goodIntroduction:'',
+    goodClassification: '',
+    position: 'left',
+    goodPrice: ''
   },
 
-  handleCataChange({ detail = {} }) {
+  goodNameInput:function(e) {
+    // console.log(e.detail.value);
     this.setData({
-        current: detail.value
+      goodName : e.detail.value,
+    })
+  },
+
+  goodIntroductionInput:function(e){
+    // console.log(e.detail.value);
+    this.setData({
+      goodIntroduction : e.detail.value,
+    })
+  },
+
+  handleCataChange({
+    detail = {}
+  }) {
+    console.log(detail.value);
+    this.setData({
+      goodClassification: detail.value
     });
   },
 
-  toggleLeft1() {
+  toggleRight1() {
     this.setData({
-        showLeftCata: !this.data.showLeftCata
+      showRightCata: !this.data.showRightCata
     });
   },
 
