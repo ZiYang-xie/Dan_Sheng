@@ -9,9 +9,19 @@ Page({
   data: {
     currentTalkId: app.globalData.currentDetailTalk,
     currentTalkInformation: {
-      talkName: "论文",
+      talkName: "如何看待复旦大学的网课制度？",
       talkInformation:"ewiudsapodjoqwepafspwqjopqweqw",
       talkPublisher: "吕昌泽",
+      talkAnswers:[
+        {
+          answerPublisher:"杨朝晖",
+          answerContent:"我觉得还行，毕竟像我这样的大佬随便A",
+        },
+        {
+          answerPublisher:"吕昌泽",
+          answerContent:"我觉得不行，像我这样的菜鸡都是C",
+        },
+      ]
     },
   },
 
@@ -39,6 +49,12 @@ Page({
     });
   },
 
+
+  jumpToPublishTalkAnswer(){
+    wx.navigateTo({
+      url: 'publishTalkAnswer/publishTalkAnswer',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

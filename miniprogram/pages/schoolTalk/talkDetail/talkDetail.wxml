@@ -1,4 +1,13 @@
 <!--miniprogram/pages/schoolTalk/talkDetail/talkDetail.wxml-->
-<text>讨论详情页面</text>
-<view>{{currentTalkId}}</view>
-<view>{{currentTalkInformation.talkName}}</view>
+<i-panel>
+	<view>{{currentTalkInformation.talkName}}</view>
+	<view>发起人：{{currentTalkInformation.talkPublisher}}</view>
+</i-panel>
+<block wx:for="{{currentTalkInformation.talkAnswers}}" data-item="item">
+	<i-panel>
+		<view>{{item.answerPublisher}} 回答：</view>
+		<view>{{item.answerContent}}</view>
+	</i-panel>
+</block>
+
+<i-button bind:click="jumpToPublishTalkAnswer" type="error">添加我的回答</i-button>

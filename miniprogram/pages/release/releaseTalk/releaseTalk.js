@@ -84,7 +84,6 @@ Page({
         talkClassification:this.data.talkClassification,
       },
       success(res) {
-        //得到返回的数据
         $Message({
           content: '发布成功',
           type: 'success'
