@@ -1,18 +1,42 @@
 // miniprogram/pages/schoolTalk/talkDetail/talkDetail.js
+var app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    currentTalkId: app.globalData.currentDetailTalk,
+    currentTalkInformation: {
+      talkName: "论文",
+      talkInformation:"ewiudsapodjoqwepafspwqjopqweqw",
+      talkPublisher: "吕昌泽",
+    },
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      currentTalkId : app.globalData.currentDetailTalk
+    })
+    console.log(this.data.currentTalkId)
+    wx.request({
+      //将当前页面的讨论Id发给后端
+      url: '/talkDetail_onLoad',
+      data: {
+        currentTalkId:this.data.currentTalkId,
+      },
+      success(res) {
+        //得到返回的数据
+        this.setData({
+          currentTalkInformation : res.data.currentTalkInformation
+        })
+        console.log(res.data)
+      }
+    });
   },
 
   /**

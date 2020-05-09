@@ -15,22 +15,26 @@ Page({
         goodName: "文具-笔",
         goodPrice: "5元",
         goodReleaseTime: "2020/3/20",
-        goodSeller: "售卖人:"+"谢子飏",
+        goodSeller: "售卖人:" + "谢子飏",
         goodIntroduction: "几支笔",
+        goodId: 1,
         goodImg: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587917214759&di=7f9b2d53641e3b67ba3f73ef86465dd1&imgtype=0&src=http%3A%2F%2Fwww.szthks.com%2Flocalimg%2F687474703a2f2f6777322e616c6963646e2e636f6d2f62616f2f75706c6f616465642f69322f543174526f355866426758585858585858585f2121302d6974656d5f7069632e6a7067.jpg",
       },
       {
         goodName: "数学分析",
         goodPrice: "30元",
         goodReleaseTime: "2020/3/25",
-        goodSeller: "售卖人:"+"法外狂徒张三",
+        goodSeller: "售卖人:" + "法外狂徒张三",
         goodIntroduction: "数学分析，从入门到入土",
+        goodId: 2,
         goodImg: "http://img3.imgtn.bdimg.com/it/u=86994036,3090435963&fm=15&gp=0.jpg"
       }
     ]
   },
 
-  changeSubPage({detail}) {
+  changeSubPage({
+    detail
+  }) {
     var currentSubPage = detail.key;
     this.setData({
       currentSubPage: currentSubPage,
@@ -40,11 +44,13 @@ Page({
       url: '/secondHand_changeSubPage',
       data: {
         currentSubPage: currentSubPage,
-        userName: app.globalData.userName,//全局变量
+        userName: app.globalData.userName, //全局变量
       },
       success(res) {
         //得到返回的数据
-        this.currentGoods = res.data.currentGoods;
+        this.setData({
+          currentGoods: res.data.currentGoods
+        })
         console.log(res.data)
       }
     });
@@ -60,11 +66,13 @@ Page({
       },
       success(res) {
         //得到返回的数据，根据用户的标签进行商品推荐
-        this.currentGoods = res.data.currentGoods;
+        this.setData({
+          currentGoods: res.data.currentGoods
+        })
         console.log(res.data)
       }
     });
-    
+
   },
 
   onShow: function () {
@@ -85,15 +93,17 @@ Page({
       },
       success(res) {
         //得到返回的数据
-        this.currentGoods = res.data.currentGoods;
+        this.setData({
+          currentGoods: res.data.currentGoods,
+        })
         console.log(res.data)
       }
     });
     console.log('form发生了submit事件，携带数据为：', searchValue)
   },
 
-  gotoDetail:function (e) {
-    app.globalData.currentDetailGood = e.currentTarget.dataset.good_name;
+  gotoDetail: function (e) {
+    app.globalData.currentDetailGood = e.currentTarget.dataset.good_id;
     console.log(app.globalData.currentDetailGood);
     wx.navigateTo({
       url: 'goodDetail/goodDetail',

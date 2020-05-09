@@ -9,12 +9,14 @@ Page({
     currentTalks: [{
       talkName: "hhh",
       talkIntroduction: "无敌",
-      talkId: "1",
+      talkId: "212",
       talkPublisher: "吕昌泽",
     }, ]
   },
 
-  handleChangeScroll({detail}) {
+  handleChangeScroll({
+    detail
+  }) {
     var currentSubPage = detail.key;
     this.setData({
       currentSubPage: currentSubPage
@@ -25,11 +27,13 @@ Page({
       url: '/schoolTalk_changeSubPage',
       data: {
         currentSubPage: currentSubPage,
-        userName: app.globalData.userName,//全局变量
+        userName: app.globalData.userName, //全局变量
       },
       success(res) {
         //得到返回的数据
-        this.currentTalks = res.data.currentTalks;
+        this.setData({
+          currentTalks: res.data.currentTalks
+        });
         console.log(res.data)
       }
     });
@@ -37,7 +41,7 @@ Page({
 
   gotoDetail: function (e) {
     app.globalData.currentDetailTalk = e.currentTarget.dataset.talk_id;
-    console.log(app.globalData.currentDetailTalk);
+    console.log(app.globalData.currentDetailTalk + " 1");
     wx.navigateTo({
       url: 'talkDetail/talkDetail',
     })
@@ -56,7 +60,9 @@ Page({
       },
       success(res) {
         //得到返回的数据，根据用户的标签进行商品推荐
-        this.currentTalks = res.data.currentTalks;
+        this.setData({
+          currentTalks: res.data.currentTalks,
+        })
         console.log(res.data)
       }
     });
