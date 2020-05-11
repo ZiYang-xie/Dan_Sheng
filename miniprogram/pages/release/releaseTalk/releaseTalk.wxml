@@ -7,7 +7,7 @@
 
 	<view class="divLine-top"></view>
 	<view class="textarea-wrp">
-      <textarea  class="textarea" name="talkIntroduction" placeholder="请输入讨论内容" bindinput="talkIntroductionInput"/>
+      <textarea class="textarea" name="talkIntroduction" placeholder="请输入讨论内容" bindinput="talkIntroductionInput"/>
   </view>
 	
 	<view class="divLine-top"></view><!--分割线-->

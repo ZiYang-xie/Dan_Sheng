@@ -1,2 +1,18 @@
 <!--miniprogram/pages/secondHand/goodDetail/goodDetail.wxml-->
-<view>商品详情页面</view>
+<i-panel title="{{currentGoodInformation.goodSeller}} 发布于 {{currentGoodInformation.goodReleaseTime}}"></i-panel>
+<i-panel title="¥ {{ currentGoodInformation.goodPrice}}">
+	<view>{{currentGoodInformation.goodIntroduction}}</view>
+</i-panel>
+<i-panel>
+	<image src="{{currentGoodInformation.goodImg}}"></image>
+</i-panel>
+
+<i-panel title="全部留言">
+	<block wx:for="{{currentGoodInformation.goodAnswers}}" data-item="item">
+		<view>{{item.answerPublisher}} 留言：</view>
+		<view>{{item.answerContent}}</view>
+	</block>
+  <input type="textarea" placeholder="输入您的留言（不超过50字）" bindinput="inputAnswer"/>
+  <i-button type="error" bind:click="publishGoodAnswer">留言</i-button>
+</i-panel>
+<i-message id="message" />
