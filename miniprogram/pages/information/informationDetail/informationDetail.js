@@ -1,58 +1,36 @@
-// miniprogram/pages/information/information.js
+// miniprogram/pages/information/informationDetail/informationDetail.js
 const app = getApp()
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentUserName : app.globalData.userName,
-    myInformation :[
-      {
-        sender:"杨朝辉",
-        senderNumber:"18302010057",
-        lastInformation:"哈哈",
-        numberOfNewInformation:0
-      },
-      {
-        sender:"沈征宇",
-        senderNumber:"183020100XX",
-        lastInformation:"在吗",
-        numberOfNewInformation:1
-      },
-    ]
+    currentSender:app.globalData.currentInformationSender,
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.setData({
-      currentUserName:app.globalData.userName,
+      currentSender:app.globalData.currentInformationSender,
     })
     wx.request({
-      url: '/information_onLoad',
+      url: '/informationDetail_onLoad',
       data:{
         userName:this.data.currentUserName,
+        currentSender:this.data.currentSender,
       },
       success(res){
         this.setData({
-          myInformation:res.data.myInformation,
+
         })
         console.log(res.data)
       }
     })
-    console.log(this.data.currentUserName)
   },
 
-  gotoDetail(e){
-    app.globalData.currentInformationSender = e.currentTarget.dataset.sender;
-    console.log(app.globalData.currentInformationSender);
-    wx.navigateTo({
-      url: 'informationDetail/informationDetail',
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -64,11 +42,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        current:'information'
-      })
-    }
+
   },
 
   /**

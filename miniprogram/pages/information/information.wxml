@@ -1,1 +1,12 @@
-<view>个人消息界面</view>
+<i-cell-group>
+	<block wx:for="{{myInformation}}" data-item="item">
+		<i-cell 
+    title="{{item.sender}} {{item.senderNumber}}" 
+    label="{{item.lastInformation}}" 
+    value="{{item.numberOfNewInformation}}条新消息" 
+    bind:click="gotoDetail"
+    data-sender="{{item.sender}}"
+     is-link>
+    </i-cell>
+	</block>
+</i-cell-group>
