@@ -8,6 +8,7 @@
     "i-radio": "../../dist/radio/index",
     "i-cell-group": "../../dist/cell-group/index",
     "i-cell": "../../dist/cell/index",
-    "i-icon": "../../dist/icon/index"
+    "i-icon": "../../dist/icon/index",
+    "i-message": "../../../dist/message/index"
   }
 }

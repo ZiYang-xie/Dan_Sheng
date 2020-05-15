@@ -1,4 +1,6 @@
 // miniprogram/pages/releaseGoods/releaseGoods.js
+const {$Message} = require('../../../dist/base/index');
+const app = getApp();
 Page({
 
   /**
@@ -70,6 +72,33 @@ Page({
     });
   },
 
+  publishGood(){
+    if (this.data.goodName === '' 
+    || this.data.goodIntroduction === ''
+    || this.data.goodClassification === '' 
+    || this.data.goodPrice === '') {
+      $Message({
+        content: '商品名称、商品简介、商品分类、商品价格均不得为空',
+        type: 'error'
+      });
+      return;
+    }
+    wx.request({
+      url: 'releaseGood_release',
+      data:{
+        goodName:this.data.goodName,
+        goodIntroduction:this.data.goodIntroduction,
+        goodClassification:this.data.goodClassification,
+        goodPrice:this.data.goodPrice
+      },
+      success(res) {
+        $Message({
+          content: '发布成功',
+          type: 'success'
+        });
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
