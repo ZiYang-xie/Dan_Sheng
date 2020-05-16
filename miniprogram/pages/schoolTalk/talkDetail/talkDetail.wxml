@@ -1,13 +1,13 @@
 <!--miniprogram/pages/schoolTalk/talkDetail/talkDetail.wxml-->
 <i-panel>
-	<view>{{currentTalkInformation.talkName}}</view>
-	<view>发起人：{{currentTalkInformation.talkPublisher}}</view>
+	<view class="topic">{{currentTalkInformation.talkName}}</view>
+	<view class="tPublisher">发起人：{{currentTalkInformation.talkPublisher}}</view>
 </i-panel>
-<block wx:for="{{currentTalkInformation.talkAnswers}}" data-item="item">
+<block class="answerContainer" wx:for="{{currentTalkInformation.talkAnswers}}" data-item="item">
 	<i-panel>
-		<view>{{item.answerPublisher}} 回答：</view>
-		<view>{{item.answerContent}}</view>
+		<view class="aPublisher">{{item.answerPublisher}}</view>
+		<view class="answerContent">{{item.answerContent}}</view>
 	</i-panel>
 </block>
 
-<i-button bind:click="jumpToPublishTalkAnswer" type="error">添加我的回答</i-button>
+<i-button i-class="btn" shape="circle" bind:click="jumpToPublishTalkAnswer" type="error">添加回答</i-button>

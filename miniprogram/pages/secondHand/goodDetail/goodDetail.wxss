@@ -1,1 +1,80 @@
 /* miniprogram/pages/secondHand/goodDetail/goodDetail.wxss */
+.goodContainer{
+  background-color: white;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.goodImg{
+  display: block;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  border-radius: 150rpx;
+  width: 350rpx;
+  max-width: 150px;
+  height: 350rpx;
+  max-height: 150px;
+  box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+
+.goodPrice{
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #eb2f06;
+  width: auto!important;
+  padding: 0 8px 0 8px;
+}
+
+.goodTitle{
+  font-weight: bold!important;
+}
+
+.goodInfo{
+  border: 1px solid black;
+  border-radius: 20rpx;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 0px 10px rgb(0,0,0,0.1);
+}
+
+.goodIntro{
+  margin: 20rpx 20rpx 30rpx 20rpx;
+  font-size: 16px;
+}
+
+.goodDetail{
+  margin: 0 20rpx 20rpx 20rpx;
+  font-size: 14px;
+  color: gray;
+}
+
+.answerContainer{
+  background-color: white;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.aPublisher{
+  font-weight: bold;
+  margin: 0rpx 10rpx 0rpx 20rpx;
+}
+
+.aContent{
+  margin: 20rpx 10rpx 0rpx 20rpx;
+}
+
+.textArea{
+  border-radius: 10px;
+  margin: 20rpx 20rpx 10rpx 20rpx;
+}
+
+.btn{
+  font-size: 16px!important;
+  line-height: 27px!important;
+  width: 120px!important;
+}

@@ -1,1 +1,33 @@
 /* miniprogram/pages/schoolTalk/talkDetail/talkDetail.wxss */
+.topic{
+  font-size: 20px;
+  font-weight: bold;
+  margin:30rpx 10rpx 20rpx 20rpx;
+}
+
+.tPublisher{
+  font-size: 14px;
+  color: grey;
+  font-weight: bold;
+  margin: 20rpx 10rpx 20rpx 20rpx;
+}
+
+.answerContainer{
+  padding: 0px;
+  margin: 0;
+}
+
+.aPublisher{
+  font-weight: bold;
+  margin: 20rpx 10rpx 20rpx 20rpx;
+}
+
+.answerContent{
+  margin: 20rpx 10rpx 30rpx 20rpx;
+}
+
+.btn{
+  font-size: 16px!important;
+  line-height: 27px!important;
+  width: 120px!important;
+}

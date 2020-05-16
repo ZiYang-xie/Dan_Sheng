@@ -1,18 +1,27 @@
 <!--miniprogram/pages/secondHand/goodDetail/goodDetail.wxml-->
-<i-panel title="{{currentGoodInformation.goodSeller}} 发布于 {{currentGoodInformation.goodReleaseTime}}"></i-panel>
-<i-panel title="¥ {{ currentGoodInformation.goodPrice}}">
-	<view>{{currentGoodInformation.goodIntroduction}}</view>
-</i-panel>
-<i-panel>
-	<image src="{{currentGoodInformation.goodImg}}"></image>
-</i-panel>
 
-<i-panel title="全部留言">
+<view class="goodContainer">
+	<image class="goodImg" src="{{currentGoodInformation.goodImg}}"></image>
+	<view class="goodPrice">{{ currentGoodInformation.goodPrice}} ¥</view>
+	<i-divider i-class="goodTitle" content="物品信息" size="16" line-color="black"
+	color="black"></i-divider>
+	<view class="goodInfo">
+		<view class="goodIntro">{{currentGoodInformation.goodIntroduction}}</view>
+		<view class="goodDetail">
+			<view>售卖者： {{currentGoodInformation.goodSeller}}</view>
+			<view>发布于： {{currentGoodInformation.goodReleaseTime}}</view>
+		</view>
+	</view>
+</view>
+
+<view class="answerContainer">
+	<i-divider i-class="goodTitle" content="全部留言" size="16"></i-divider>
 	<block wx:for="{{currentGoodInformation.goodAnswers}}" data-item="item">
-		<view>{{item.answerPublisher}} 留言：</view>
-		<view>{{item.answerContent}}</view>
+		<view class="aPublisher">{{item.answerPublisher}} 留言：</view>
+		<view class="aContent">{{item.answerContent}}</view>
+		<i-divider line-color="rgba(200,200,200,0.1)"></i-divider>
 	</block>
-  <input type="textarea" placeholder="输入您的留言（不超过50字）" bindinput="inputAnswer"/>
-  <i-button type="error" bind:click="publishGoodAnswer">留言</i-button>
-</i-panel>
+</view>
+  <i-input i-class="textArea" type="textarea" placeholder="输入您的留言（不超过50字）" bind:change="inputAnswer"/>
+  <i-button i-class="btn" type="error" bind:click="publishGoodAnswer">留言</i-button>
 <i-message id="message" />
