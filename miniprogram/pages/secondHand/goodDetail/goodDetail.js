@@ -77,7 +77,6 @@ Page({
       currentGoodInformation: list,
     })
     wx.request({
-      //将当前页面的讨论Id发给后端
       url: '/goodDetail_addAnswer',
       data: {
         answerPublisher: app.globalData.userName,

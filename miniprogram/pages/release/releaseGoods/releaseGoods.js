@@ -86,6 +86,7 @@ Page({
     wx.request({
       url: 'releaseGood_release',
       data:{
+        releaseUserName:app.globalData.userName,
         goodName:this.data.goodName,
         goodIntroduction:this.data.goodIntroduction,
         goodClassification:this.data.goodClassification,

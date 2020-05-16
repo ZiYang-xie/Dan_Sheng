@@ -79,6 +79,7 @@ Page({
     wx.request({
       url: 'releaseTalk_release',
       data:{
+        releaseUserName:app.globalData.userName,
         talkName:this.data.talkName,
         talkIntroduction:this.data.talkIntroduction,
         talkClassification:this.data.talkClassification,

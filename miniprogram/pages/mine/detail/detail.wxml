@@ -1,2 +1,7 @@
 <!--miniprogram/pages/mine/detail/detail.wxml-->
-<text>个人详情页面</text>
+<i-cell-group>
+    <i-cell title="我的姓名" label="{{userName}}"></i-cell>
+    <i-cell title="我的学号" label="{{userInformation.userStudentId}}"></i-cell>
+    <i-cell title="我的邮箱" label="{{userInformation.userEmail}}"></i-cell>
+</i-cell-group>
+
