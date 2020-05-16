@@ -1,2 +1,2 @@
 <!--miniprogram/pages/mine/credit/credit.wxml-->
-<text>信誉值页面</text>
+<view>我的信誉值：{{creditValue}}</view>

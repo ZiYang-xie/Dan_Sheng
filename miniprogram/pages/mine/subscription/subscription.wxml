@@ -1,2 +1,5 @@
 <!--miniprogram/pages/mine/subscription/subscription.wxml-->
-<text>订阅界面</text>
+<view>我的关注</view>
+<block wx:for="{{subseriptions}}">
+<view>{{item}}</view>
+</block>

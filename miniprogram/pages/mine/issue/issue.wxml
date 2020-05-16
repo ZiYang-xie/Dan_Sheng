@@ -1,2 +1,6 @@
 <!--miniprogram/pages/mine/issue/issue.wxml-->
-<text>个人发布界面</text>
+<view>我的发布</view>
+<i-tabs i-class="tabs" current="{{currentTab}}" color="#fa983a" bindchange="changeTab">
+	<i-tab key="good" title="商品"></i-tab>
+	<i-tab key="talk" title="讨论"></i-tab>
+</i-tabs>

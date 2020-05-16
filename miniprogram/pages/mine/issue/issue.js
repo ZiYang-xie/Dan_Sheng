@@ -5,9 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentTab: "good",
   },
 
+  changeTab({
+    detail
+  }) {
+    var currentTab = detail.key;
+    this.setData({
+      currentTab: currentTab,
+    });
+    wx.request({
+      //将当前页面是推荐还是热榜发给后端
+      url: '/mineIssue_changeTab',
+      data: {
+        currentTab: currentTab,
+        userName: app.globalData.userName, //全局变量
+      },
+      success(res) {
+        //得到返回的数据
+        this.setData({
+          issuedGoods: res.data.issuedGoods
+        })
+        console.log(res.data)
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

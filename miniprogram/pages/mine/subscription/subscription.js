@@ -1,18 +1,33 @@
 // miniprogram/pages/mine/subscription/subscription.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userName:app.globalData.userName,
+    subseriptions:["小红书","闲鱼","微信"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      userName:app.globalData.userName,
+    })
+    wx.request({
+      url: 'mineSubscription_onLoad',
+      data:{
+        userName:app.globalData.userName,
+      },
+      success(res) {
+        this.setData({
+          subseriptions : res.data.subseriptions,
+        })
+      }
+    })
   },
 
   /**
