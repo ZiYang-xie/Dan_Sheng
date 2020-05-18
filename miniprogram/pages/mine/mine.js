@@ -8,59 +8,89 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName:"旦生",
+    userName: "旦生",
     userImgsrc:"../../style/icon/mainIcon/mainIcon.png",
     visible: false,
-        actions: [
-            {
-              name: '相册',
-              icon: 'picture'
-            },
-            {
-              name: '拍照',
-              icon:'camera'
-            },
-            {
-              name: '取消',
-              icon: 'close',
-              color: '#959595'
-            }
-        ],
+    actions: [{
+        name: '相册',
+        icon: 'picture'
+      },
+      {
+        name: '拍照',
+        icon: 'camera'
+      },
+      {
+        name: '取消',
+        icon: 'close',
+        color: '#959595'
+      }
+    ],
   },
   /**
    * 用户点击改变头像事件
    */
-  changeUserImg: function(event){
-    app.globalData.tabBarHidden = true;
-    this.setData({
-      visible: true
-    });
-    console.log(app.globalData.tabBarHidden)
+  changeUserImg: function (event) {
+    var _this = this;
+    wx.showActionSheet({
+      itemList: ['拍照', '从相册中选择'],
+      success(res) {
+        console.log(res.tapIndex)
+        if (res.tapIndex == 0) { //0是拍照
+          wx.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: ['camera'],
+            success: function (res) {
+              var tempFilePaths = res.tempFilePaths
+              _this.setData({
+                userImgsrc: tempFilePaths,
+              })
+              //res.tempFilePaths[0] 这个是图片
+            },
+          })
+        } else if (res.tapIndex == 1) {
+          wx.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: ['album'],
+            success: function (res) {
+              var tempFilePaths = res.tempFilePaths
+              _this.setData({
+                userImgsrc: tempFilePaths,
+              })
+              //res.tempFilePaths[0] 这个是图片
+            },
+          })
+        }
+      }
+    })
   },
   /**
    * 用户取消点击修改头像事件
    */
-  handleImgClick({detail}){
+  handleImgClick({
+    detail
+  }) {
     app.globalData.tabBarHidden = false;
-    switch(detail.index){
-      case 0:{
+    switch (detail.index) {
+      case 0: {
         wx.navigateTo({
           url: '../release/releaseGoods/releaseGoods',
         })
         break;
       };
-      case 1:{
-        wx.navigateTo({
-          url: '../release/releaseTalk/releaseTalk',
-        })
-        break;
-      };
-      case 2:{
-        this.setData({
-          visible: false,
-        });
-        break;
-      };
+    case 1: {
+      wx.navigateTo({
+        url: '../release/releaseTalk/releaseTalk',
+      })
+      break;
+    };
+    case 2: {
+      this.setData({
+        visible: false,
+      });
+      break;
+    };
     }
   },
   /**
@@ -83,7 +113,7 @@ Page({
   onShow: function () {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
-        current:'mine'
+        current: 'mine'
       })
     }
   },
