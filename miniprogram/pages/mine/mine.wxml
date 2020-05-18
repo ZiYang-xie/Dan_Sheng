@@ -5,8 +5,10 @@
 			<image class="userImg" src="{{userImgsrc}}"></image>
 		</view>
     <view class="userName">
-			<p>{{userName}}</p>
+			<p wx:if="{{isLogin === true}}">{{userName}}</p>
+			<p wx:if="{{isLogin === false}}" bindtap="gotoLogin">点击登录</p>
 		</view>
+		
 	</i-cell>
 	<i-cell title="个人信息" is-link="true" url="./detail/detail"></i-cell>
 	<i-cell title="我的标签" is-link="true" url="./tag/tag"></i-cell>
@@ -18,5 +20,5 @@
 	</i-cell>
 </i-cell-group>
 
-<!--更换头像-->
-<i-modal class="modalImg" title="请选择照片来源" visible="{{ visible }}" actions="{{ actions }}" action-mode="{{ vertical }}" bind:click="handleImgClick"></i-modal>
+<!-- 更换头像 -->
+<!-- <i-modal class="modalImg" title="请选择照片来源" visible="{{ visible }}" actions="{{ actions }}" action-mode="{{ vertical }}" bind:click="handleImgClick"></i-modal> -->

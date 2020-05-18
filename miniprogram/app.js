@@ -21,7 +21,10 @@ App({
       currentDetailGood:0,//存当前货物的id
       currentDetailTalk:0,//存当前讨论的id
       tabBarHidden: false,
+      isLogin:false,
+      userInfo:{},
       openid:0,
+      urlPath:""
     }
   }
 })

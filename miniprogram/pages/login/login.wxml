@@ -1,7 +1,7 @@
 <!--miniprogram/pages/login/login.wxml-->
 <view wx:if="{{canIUse}}">
  <view class='header'>
-  <image src=''></image>
+  <image src='../../style/icon/mainIcon/mainIcon.png'></image>
  </view>
   
  <view class='content'>
@@ -9,7 +9,7 @@
   <text>获得你的公开信息(昵称，头像等)</text>
  </view>
   
- <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+ <button class='bottom' type='primary' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
   授权登录
  </button>
 </view>

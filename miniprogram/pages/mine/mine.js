@@ -25,6 +25,7 @@ Page({
         color: '#959595'
       }
     ],
+    isLogin:'',
   },
   /**
    * 用户点击改变头像事件
@@ -65,39 +66,48 @@ Page({
       }
     })
   },
+
+  gotoLogin(){
+    wx.redirectTo({
+      url: '../login/login',
+    })
+  },
+
   /**
    * 用户取消点击修改头像事件
    */
-  handleImgClick({
-    detail
-  }) {
-    app.globalData.tabBarHidden = false;
-    switch (detail.index) {
-      case 0: {
-        wx.navigateTo({
-          url: '../release/releaseGoods/releaseGoods',
-        })
-        break;
-      };
-    case 1: {
-      wx.navigateTo({
-        url: '../release/releaseTalk/releaseTalk',
-      })
-      break;
-    };
-    case 2: {
-      this.setData({
-        visible: false,
-      });
-      break;
-    };
-    }
-  },
+  // handleImgClick({
+  //   detail
+  // }) {
+  //   app.globalData.tabBarHidden = false;
+  //   switch (detail.index) {
+  //     case 0: {
+  //       wx.navigateTo({
+  //         url: '../release/releaseGoods/releaseGoods',
+  //       })
+  //       break;
+  //     };
+  //   case 1: {
+  //     wx.navigateTo({
+  //       url: '../release/releaseTalk/releaseTalk',
+  //     })
+  //     break;
+  //   };
+  //   case 2: {
+  //     this.setData({
+  //       visible: false,
+  //     });
+  //     break;
+  //   };
+  //   }
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      isLogin:app.globalData.isLogin,
+    })
   },
 
   /**
