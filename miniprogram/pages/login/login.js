@@ -10,23 +10,26 @@ Page({
   onLoad: function () {
     var that = this;
     // 查看是否授权
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function (res) {
-              //从数据库获取用户信息
-              that.queryUsreInfo();
-              //用户已经授权过
-              app.globalData.isLogin = true;
-              wx.switchTab({
-                url: '../../pages/secondHand/secondHand'
-              })
-            }
-          });
-        }
-      }
+    wx.login({
+      complete: (res) => {},
     })
+    // wx.getSetting({
+    //   success: function (res) {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       wx.getUserInfo({
+    //         success: function (res) {
+    //           //从数据库获取用户信息
+    //           that.queryUsreInfo();
+    //           //用户已经授权过
+    //           app.globalData.isLogin = true;
+    //           wx.switchTab({
+    //             url: '../../pages/secondHand/secondHand'
+    //           })
+    //         }
+    //       });
+    //     }
+    //   }
+    // })
   },
 
   bindGetUserInfo: function (e) {
@@ -75,16 +78,16 @@ Page({
   //获取用户信息接口
   queryUsreInfo: function () {
     wx.request({
-      url: getApp().globalData.urlPath + 'hstc_interface/queryByOpenid',
+      url: "",
       data: {
-        openid: getApp().globalData.openid
+        openid: app.globalData.openid
       },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         console.log(res.data);
-        getApp().globalData.userInfo = res.data.userInfo;
+        app.globalData.userInfo = res.data.userInfo;
       }
     })
   },
