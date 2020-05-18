@@ -9,8 +9,7 @@
     "pages/secondHand/goodDetail/goodDetail",
     "pages/schoolTalk/talkDetail/talkDetail",
     "pages/schoolTalk/talkDetail/publishTalkAnswer/publishTalkAnswer",
-    "pages/information/informationDetail/informationDetail",
-    "pages/login/login"
+    "pages/information/informationDetail/informationDetail"
   ],
   "tabBar": {
     "custom": true,

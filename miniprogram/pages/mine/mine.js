@@ -68,9 +68,6 @@ Page({
   },
 
   gotoLogin(){
-    wx.redirectTo({
-      url: '../login/login',
-    })
   },
 
   /**
