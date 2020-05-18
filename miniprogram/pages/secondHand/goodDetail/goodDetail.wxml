@@ -22,6 +22,6 @@
 		<i-divider line-color="rgba(200,200,200,0.1)"></i-divider>
 	</block>
 </view>
-<input i-class="textArea" type="textarea" placeholder="输入您的留言（不超过50字）" bindinput="inputAnswer"/>
+<input i-class="textArea" type="textarea" placeholder="输入您的留言" bindinput="inputAnswer"/>
 <i-button i-class="btn" type="error" bind:click="publishGoodAnswer">留言</i-button>
 <i-message id="message" />
