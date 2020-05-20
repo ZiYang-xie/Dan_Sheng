@@ -18,10 +18,12 @@ Page({
       goodImg: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587917214759&di=7f9b2d53641e3b67ba3f73ef86465dd1&imgtype=0&src=http%3A%2F%2Fwww.szthks.com%2Flocalimg%2F687474703a2f2f6777322e616c6963646e2e636f6d2f62616f2f75706c6f616465642f69322f543174526f355866426758585858585858585f2121302d6974656d5f7069632e6a7067.jpg",
       goodAnswers: [{
           answerPublisher: "吕昌泽",
+          publisherImg: "http://img4.imgtn.bdimg.com/it/u=3374416169,262924133&fm=11&gp=0.jpg",
           answerContent: "请问还有卖吗？",
         },
         {
           answerPublisher: "杨朝晖",
+          publisherImg: "https://wimg.ruan8.com/uploadimg/image/20190131/20190131130305_65861.jpg",
           answerContent: "我最爱这个了！",
         }
       ]

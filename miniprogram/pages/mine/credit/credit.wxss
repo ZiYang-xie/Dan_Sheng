@@ -1,1 +1,13 @@
 /* miniprogram/pages/mine/credit/credit.wxss */
+.creditImg{
+  margin: 0 auto;
+  width: 750rpx;
+  height: 809rpx;
+}
+
+.creditText{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: darkslateblue;
+}

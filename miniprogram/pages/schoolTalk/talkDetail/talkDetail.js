@@ -15,10 +15,12 @@ Page({
       talkAnswers:[
         {
           answerPublisher:"杨朝晖",
+          publisherImg: "https://wimg.ruan8.com/uploadimg/image/20190131/20190131130305_65861.jpg",
           answerContent:"我觉得还行，毕竟像我这样的大佬随便A",
         },
         {
           answerPublisher:"吕昌泽",
+          publisherImg: "http://img4.imgtn.bdimg.com/it/u=3374416169,262924133&fm=11&gp=0.jpg",
           answerContent:"我觉得不行，像我这样的菜鸡都是C",
         },
       ]

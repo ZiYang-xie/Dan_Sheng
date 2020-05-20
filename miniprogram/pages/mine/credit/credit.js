@@ -8,7 +8,9 @@ Page({
   data: {
     userName:app.globalData.userName,
     creditValue:100,
+    creditImg: ""
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -28,6 +30,21 @@ Page({
         })
       }
     })
+    if(this.creditValue < 60){
+      this.setData({
+        creditImg:"./creditImg/BadCredit.png"
+      })
+    } 
+    else if(this.creditValue >=60 && this.creditValue <90){
+      this.setData({
+        creditImg:"./creditImg/GoodCredit.png"
+      })
+    }
+    else{
+      this.setData({
+        creditImg:"./creditImg/ExcellentCredit.png"
+      })
+    }
   },
 
   /**

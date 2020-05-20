@@ -5,8 +5,9 @@
 </i-panel>
 <block class="answerContainer" wx:for="{{currentTalkInformation.talkAnswers}}" data-item="item">
 	<i-panel>
+		<image class="aPublisherImg" src="{{item.publisherImg}}"></image>
 		<view class="aPublisher">{{item.answerPublisher}}</view>
-		<view class="answerContent">{{item.answerContent}}</view>
+		<view class="aContent">{{item.answerContent}}</view>
 	</i-panel>
 </block>
 

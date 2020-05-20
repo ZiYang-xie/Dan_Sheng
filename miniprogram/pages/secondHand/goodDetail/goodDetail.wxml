@@ -16,8 +16,9 @@
 
 <view class="answerContainer">
 	<i-divider i-class="goodTitle" content="全部留言" size="16"></i-divider>
-	<block wx:for="{{currentGoodInformation.goodAnswers}}" data-item="item">
-		<view class="aPublisher">{{item.answerPublisher}} 留言：</view>
+	<block  wx:for="{{currentGoodInformation.goodAnswers}}" data-item="item">
+		<image class="aPublisherImg" src="{{item.publisherImg}}"></image>
+		<view class="aPublisher">{{item.answerPublisher}}</view>
 		<view class="aContent">{{item.answerContent}}</view>
 		<i-divider line-color="rgba(200,200,200,0.1)"></i-divider>
 	</block>
