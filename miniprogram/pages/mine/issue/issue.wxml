@@ -1,6 +1,14 @@
 <!--miniprogram/pages/mine/issue/issue.wxml-->
-<view>我的发布</view>
-<i-tabs i-class="tabs" current="{{currentTab}}" color="#fa983a" bindchange="changeTab">
+<i-tabs i-class="tabs" current="{{currentTab}}" color="#ff793f" bindchange="changeTab">
 	<i-tab key="good" title="商品"></i-tab>
 	<i-tab key="talk" title="讨论"></i-tab>
 </i-tabs>
+
+<view class="goods">
+	<block wx:if="{{currentTab}}==good" wx:for="{{currentGoods}}" data-item="item">
+			<i-card i-class-img="cards-img" i-class="cards" title="{{item.goodName}}" extra="¥ {{item.goodPrice}}" thumb="{{item.goodImg}}" bindtap="showImg">
+				<view slot="content">{{item.goodIntroduction}}</view>
+				<button slot="footer" bindtap="gotoDetail" data-good_id="{{item.goodId}}">查看详情</button>
+			</i-card>
+	</block>
+</view>

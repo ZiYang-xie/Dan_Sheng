@@ -4,6 +4,7 @@ const app = getApp()
 Page({
   data: {
     avatarUrl: './user-unlogin.png',
+    isIphoneX: app.globalData.isIphoneX,
     userInfo: {},
     logged: false,
     takeSession: false,
@@ -111,6 +112,7 @@ Page({
         }
       }
     })
+    
   },
 
   onGetUserInfo: function (e) {

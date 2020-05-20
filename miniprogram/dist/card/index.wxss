@@ -26,10 +26,11 @@
 }
 
 .i-card-header-thumb {
+  margin: 10rpx;
   display: inline-block;
-  width: 200rpx;
+  width: 180rpx;
   max-width: 150px;
-  height: 200rpx;
+  height: 180rpx;
   max-height: 150px;
   border-radius: 50%;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);

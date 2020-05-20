@@ -1,4 +1,4 @@
-<i-tabs i-class="tabs" current="{{currentSubPage}}" color="#fa983a" bindchange="changeSubPage">
+<i-tabs i-class="tabs" current="{{currentSubPage}}" color="#ff793f" bindchange="changeSubPage">
 	<i-tab key="recommend" title="推荐"></i-tab>
 	<i-tab key="hotRank" title="热榜"></i-tab>
 </i-tabs>

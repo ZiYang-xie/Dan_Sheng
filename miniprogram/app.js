@@ -24,9 +24,19 @@ App({
       isLogin:false,
       userInfo:{},
       openid:0,
+      isIphoneX: false,
       urlPath:""
     }
-  }
+      wx.getSystemInfo({
+        success:  res=>{
+          console.log('手机信息res:'+res.model)
+          let modelmes = res.model;
+          if (modelmes.search('iPhone X','iPhone XR','iPhone XS Max') != -1) {
+            this.globalData.isIphoneX = true
+          }
+        }
+      })
+  },
 })
 
 

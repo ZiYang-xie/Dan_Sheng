@@ -10,11 +10,21 @@
 		</view>
 		
 	</i-cell>
-	<i-cell title="个人信息" is-link="true" url="./detail/detail"></i-cell>
-	<i-cell title="我的标签" is-link="true" url="./tag/tag"></i-cell>
-	<i-cell title="我的关注" is-link="true" url="./subscription/subscription"></i-cell>
-	<i-cell title="我的发布" is-link="true" url="./issue/issue"></i-cell>
-  <i-cell title="信誉值" is-link="true" url="./credit/credit"></i-cell>
+	<i-cell title="个人信息" is-link="true" url="./detail/detail">
+		<i-icon slot="icon" type="businesscard" size="28" color="#1B9CFC" />
+	</i-cell>
+	<i-cell title="我的标签" is-link="true" url="./tag/tag">
+		<i-icon slot="icon" type="label" size="28" color="#EA2027" />
+	</i-cell>
+	<i-cell title="我的关注" is-link="true" url="./subscription/subscription">
+		<i-icon slot="icon" type="browse" size="28" color="#ffa502" />
+	</i-cell>
+	<i-cell title="我的发布" is-link="true" url="./issue/issue">
+		<i-icon slot="icon" type="createtask" size="28" color="#B33771" />
+	</i-cell>
+  <i-cell title="信誉值" is-link="true" url="./credit/credit">
+		<i-icon slot="icon" type="integral" size="28" color="#3742fa" />
+	</i-cell>
 	<i-cell title="开关">
 		<switch slot="footer" checked />
 	</i-cell>

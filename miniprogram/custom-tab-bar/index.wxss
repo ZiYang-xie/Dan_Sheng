@@ -1,1 +1,5 @@
 /* danSheng/pages/index.wxss */
+.isIPX {
+  padding-bottom: 30rpx !important;
+  height: 175rpx !important;
+}
