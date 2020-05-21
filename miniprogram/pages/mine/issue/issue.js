@@ -1,4 +1,5 @@
 // miniprogram/pages/mine/issue/issue.js
+const app = getApp()
 Page({
 
   /**
