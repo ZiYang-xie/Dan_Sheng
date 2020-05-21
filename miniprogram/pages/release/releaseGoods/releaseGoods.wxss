@@ -46,3 +46,9 @@
 
 .cataIcon{
 }
+
+.issueBtn{
+  font-size: 15px!important;
+  line-height: 27px!important;
+  width: 200px!important;
+}

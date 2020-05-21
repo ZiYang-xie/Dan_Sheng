@@ -1,1 +1,22 @@
 /* miniprogram/pages/schoolTalk/talkDetail/publishTalkAnswer/publishTalkAnswer.wxss */
+.Topic{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  background: white;
+  border-bottom: 2px solid grey;
+  padding: 10px;
+}
+
+.textArea{
+  width: 100%;
+  padding: 25rpx 25rpx;
+  background-color: #fff;
+  height: 10em;
+}
+
+.btn{
+  font-size: 16px!important;
+  line-height: 27px!important;
+  width: 120px!important;
+}

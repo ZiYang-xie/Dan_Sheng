@@ -1,4 +1,8 @@
 /* miniprogram/pages/mine/credit/credit.wxss */
+page{
+  background: white;
+}
+
 .creditImg{
   margin: 0 auto;
   width: 750rpx;

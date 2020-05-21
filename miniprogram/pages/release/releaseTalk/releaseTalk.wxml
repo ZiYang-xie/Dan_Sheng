@@ -27,5 +27,5 @@
 			</view>
 	</i-drawer>
 </i-panel>
-<i-button bind:click="publishTalk" type="error">发布校园讨论</i-button>
+<i-button i-class="issueBtn" shape="circle" bind:click="publishTalk" type="error">发布校园讨论</i-button>
 <i-message id="message" />

@@ -21,7 +21,7 @@ Page({
     this.setData({
       currentSubPage: currentSubPage
     });
-    console.log(currentSubPage);
+    
     wx.request({
       //将当前页面的主题发给后端
       url: '/schoolTalk_changeSubPage',

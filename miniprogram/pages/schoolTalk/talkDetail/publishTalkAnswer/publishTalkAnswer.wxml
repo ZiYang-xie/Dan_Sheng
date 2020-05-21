@@ -1,5 +1,5 @@
-<view>当前讨论主题：{{ currentTalkInformation.talkName}}</view>
-<view>发起人：{{currentTalkInformation.talkPublisher}}</view>
-<input i-class="textArea" type="textarea" placeholder="输入您的回答" bindinput="inputAnswer"/>
-<i-button i-class="btn" type="error" bind:click="publishTalkAnswer">留言</i-button>
+<view class="Topic">{{ currentTalkInformation.talkName}}</view>
+<textarea class="textArea" auto-focus="true" placeholder="输入您的回答" bindinput="inputAnswer">
+</textarea>
+<i-button i-class="btn" shape="circle" type="error" bind:click="publishTalkAnswer">留言</i-button>
 <i-message id="message" />

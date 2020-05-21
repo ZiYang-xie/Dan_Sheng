@@ -30,6 +30,8 @@ Page({
         })
       }
     })
+
+    //此语句暂不工作，执行仅执行最后一个else
     if(this.creditValue < 60){
       this.setData({
         creditImg:"./creditImg/BadCredit.png"
@@ -45,13 +47,14 @@ Page({
         creditImg:"./creditImg/ExcellentCredit.png"
       })
     }
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

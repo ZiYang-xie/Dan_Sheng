@@ -1,18 +1,20 @@
-<i-tabs current="{{ currentSubPage }}" scroll bindchange="handleChangeScroll">
-    <i-tab key="recommend" title="推荐"></i-tab>
-    <i-tab key="focus" title="关注"></i-tab>
-    <i-tab key="hotRank" title="热榜"></i-tab>
-    <i-tab key="chooseCourse" title="选课"></i-tab>
-    <i-tab key="studyAbroad" title="留学"></i-tab>
-    <i-tab key="entertainment" title="娱乐"></i-tab>
-    <i-tab key="makeFriends" title="交友"></i-tab>
-    <i-tab key="others" title="其他"></i-tab>
+<i-tabs class="scroll-tabs" i-class="tabs" current="{{ currentSubPage }}" scroll bindchange="handleChangeScroll">
+    <i-tab id='1' key="recommend" title="推荐"></i-tab>
+    <i-tab id='2' key="focus" title="关注"></i-tab>
+    <i-tab id='3' key="hotRank" title="热榜"></i-tab>
+    <i-tab id='4' key="chooseCourse" title="选课"></i-tab>
+    <i-tab id='5' key="studyAbroad" title="留学"></i-tab>
+    <i-tab id='6' key="entertainment" title="娱乐"></i-tab>
+    <i-tab id='7' key="makeFriends" title="交友"></i-tab>
+    <i-tab id='8' key="others" title="其他"></i-tab>
 </i-tabs>
 
-<block wx:for="{{currentTalks}}" data-item="item">
-	<i-card title="{{item.talkName}}" extra="ID: {{item.talkId}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-	  <view slot="content">{{item.talkIntroduction}}</view>
-    <view slot="content">{{item.talkPublisher}}</view>
-		<button slot="content" bindtap="gotoDetail" data-talk_id="{{item.talkId}}">查看详情</button>
-	</i-card>
-</block>
+<view class="cards-wrp">
+  <block wx:for="{{currentTalks}}" data-item="item">
+    <i-card i-class-img="cards-img" i-class="cards" title="{{item.talkName}}" extra="ID: {{item.talkId}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      <view slot="content">{{item.talkIntroduction}}</view>
+      <view slot="content">{{item.talkPublisher}}</view>
+      <button slot="content" bindtap="gotoDetail" data-talk_id="{{item.talkId}}">查看详情</button>
+    </i-card>
+  </block>
+</view>

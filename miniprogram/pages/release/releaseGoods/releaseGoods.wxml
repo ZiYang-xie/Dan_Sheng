@@ -33,7 +33,8 @@
 	<!--物品价格drawer-->
 </i-panel>
 
-<i-button bind:click="publishGood" type="error">发布二手商品</i-button>
+<i-button i-class="issueBtn" shape="circle" bind:click="publishGood" type="error">发布二手商品
+</i-button>
 <i-message id="message" />
 
 
