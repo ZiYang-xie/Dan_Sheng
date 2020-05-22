@@ -1,7 +1,6 @@
 // miniprogram/pages/mine/mine.js
 var app = getApp();
 
-
 Page({
 
   /**
@@ -9,7 +8,7 @@ Page({
    */
   data: {
     userName: "旦生",
-    userImgsrc:"../../style/icon/mainIcon/mainIcon.png",
+    userImgsrc: "../../style/icon/mainIcon/mainIcon.png",
     visible: false,
     actions: [{
         name: '相册',
@@ -25,7 +24,7 @@ Page({
         color: '#959595'
       }
     ],
-    isLogin:'',
+    isLogin: '',
   },
   /**
    * 用户点击改变头像事件
@@ -67,44 +66,81 @@ Page({
     })
   },
 
-  gotoLogin(){
+  gotoLogin() {
+
+    wx.login({
+      success(res) {
+        console.log(res.code)//调用wx.login()可获取临时登录凭证code
+        if (res.code) {
+          wx.request({
+            url: '/mine_login',
+            data: {
+              code: res.code
+            },
+            success(resp) {
+              wx.request({
+                url: 'https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code',
+                data: {
+                  appid: resp.data.appid,
+                  appsecret: resp.data.appsecret,
+                  js_code: res.code,
+                  grant_type: authorization_code
+                },
+                success(resp2) {
+                  app.globalData.openid = resp2.data.openid;
+                  app.globalData.session_key = resp2.data.session_key;
+                  wx.request({
+                    url: '/mine_login_sendId',//发送openid和session_key
+                    data:{
+                      openid:app.globalData.openid,
+                      session_key:app.globalData.session_key
+                    },
+                    success(resp3){
+                      if(resp3.data.haveRegister === false){
+                        this.register()
+                      }else {
+
+                      }
+                    }
+                  })
+                }
+              })
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
-  /**
-   * 用户取消点击修改头像事件
-   */
-  // handleImgClick({
-  //   detail
-  // }) {
-  //   app.globalData.tabBarHidden = false;
-  //   switch (detail.index) {
-  //     case 0: {
-  //       wx.navigateTo({
-  //         url: '../release/releaseGoods/releaseGoods',
-  //       })
-  //       break;
-  //     };
-  //   case 1: {
-  //     wx.navigateTo({
-  //       url: '../release/releaseTalk/releaseTalk',
-  //     })
-  //     break;
-  //   };
-  //   case 2: {
-  //     this.setData({
-  //       visible: false,
-  //     });
-  //     break;
-  //   };
-  //   }
-  // },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.setData({
-      isLogin:app.globalData.isLogin,
+      isLogin: app.globalData.isLogin, //默认为未登录
     })
+    // 查看是否授权
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          //若已经授权，可以直接调用 getUserInfo 获取各个信息
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+              app.globalData.userInfo = res.userInfo
+              that.setData({
+                userName: res.userInfo.nickName,
+                userImgsrc: res.userInfo.avatarUrl
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+
+  register() {
+
   },
 
   /**

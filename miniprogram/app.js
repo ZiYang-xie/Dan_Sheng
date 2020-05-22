@@ -1,7 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
-    
+
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -16,27 +16,28 @@ App({
     }
 
     this.globalData = {
-      userName:"吕昌泽",
-      currentInformationSender:"",
-      currentDetailGood:0,//存当前货物的id
-      currentDetailTalk:0,//存当前讨论的id
+      userName: "吕昌泽",
+      currentInformationSender: "",
+      currentDetailGood: 0, //存当前货物的id
+      currentDetailTalk: 0, //存当前讨论的id
       tabBarHidden: false,
-      isLogin:false,
-      userInfo:{},
-      openid:0,
-      isIphoneX: false,
-      urlPath:""
+      isLogin: false,//默认值为false，到时候要改为false
+      userInfo: {},
+      openid: 0,
+      session_key:'',
+      urlPath: "",
+
+      isIphoneX: false
     }
-      wx.getSystemInfo({
-        success:  res=>{
-          console.log('手机信息res:'+res.model)
-          let modelmes = res.model;
-          if (modelmes.search('iPhone X','iPhone XR','iPhone XS Max') != -1) {
-            this.globalData.isIphoneX = true
-          }
-        }
-      })
+
+    wx.getSystemInfo({
+      success: res => {
+        console.log('手机信息res:' + res.model)
+        let modelmes = res.model;
+        if (modelmes.search('iPhone X', 'iPhone XR', 'iPhone XS Max') != -1) {
+          this.globalData.isIphoneX = true
+        }
+      }
+    })
   },
 })
-
-

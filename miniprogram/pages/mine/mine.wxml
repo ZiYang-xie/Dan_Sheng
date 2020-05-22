@@ -5,9 +5,9 @@
 			<image class="userImg" src="{{userImgsrc}}"></image>
 		</view>
     <view class="userName">
-		  <p>{{userName}}</p>
-			<!-- <p wx:if="{{isLogin === true}}">{{userName}}</p> -->
-			<!-- <p wx:if="{{isLogin === false}}" bindtap="gotoLogin">点击登录</p> -->
+		  <!-- <p>{{userName}}</p> -->
+			<p wx:if="{{isLogin === true}}">{{userName}}</p>
+			<p wx:if="{{isLogin === false}}" bindtap="gotoLogin">点击登录</p>
 		</view>
 		
 	</i-cell>
