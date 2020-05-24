@@ -67,44 +67,18 @@ Page({
   },
 
   gotoLogin() {
-
     wx.login({
       success(res) {
         console.log(res.code)//调用wx.login()可获取临时登录凭证code
         if (res.code) {
           wx.request({
-            url: '/mine_login',
+            url: '/user/login',
             data: {
               code: res.code
             },
             success(resp) {
-              wx.request({
-                url: 'https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code',
-                data: {
-                  appid: resp.data.appid,
-                  appsecret: resp.data.appsecret,
-                  js_code: res.code,
-                  grant_type: authorization_code
-                },
-                success(resp2) {
-                  app.globalData.openid = resp2.data.openid;
-                  app.globalData.session_key = resp2.data.session_key;
-                  wx.request({
-                    url: '/mine_login_sendId',//发送openid和session_key
-                    data:{
-                      openid:app.globalData.openid,
-                      session_key:app.globalData.session_key
-                    },
-                    success(resp3){
-                      if(resp3.data.haveRegister === false){
-                        this.register()
-                      }else {
-
-                      }
-                    }
-                  })
-                }
-              })
+              app.globalData.openId = resp.data.openId;
+              app.globalData.isLogin = true;
             }
           })
         } else {

@@ -23,7 +23,7 @@ App({
       tabBarHidden: false,
       isLogin: false,//默认值为false，到时候要改为false
       userInfo: {},
-      openid: 0,
+      openId: null,
       session_key:'',
       urlPath: "",
 
