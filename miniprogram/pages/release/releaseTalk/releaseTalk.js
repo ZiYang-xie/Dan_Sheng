@@ -75,14 +75,14 @@ Page({
       });
       return;
     }
-
+    var that = this;
     wx.request({
-      url: 'releaseTalk_release',
+      url: app.globalData.baseUrl+'/user/',
       data:{
-        releaseUserName:app.globalData.userName,
-        talkName:this.data.talkName,
-        talkIntroduction:this.data.talkIntroduction,
-        talkClassification:this.data.talkClassification,
+        userOpenId:app.globalData.openId,
+        talkName:that.data.talkName,
+        talkIntroduction:that.data.talkIntroduction,
+        talkClassification:that.data.talkClassification,
       },
       success(res) {
         $Message({

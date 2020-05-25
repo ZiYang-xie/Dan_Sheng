@@ -72,7 +72,7 @@ Page({
         console.log(res.code)//调用wx.login()可获取临时登录凭证code
         if (res.code) {
           wx.request({
-            url: '/user/login',
+            url: app.globalData.baseUrl+'/user/login',
             data: {
               code: res.code
             },

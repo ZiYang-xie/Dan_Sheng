@@ -39,19 +39,25 @@ Page({
     goodName:'',
     goodIntroduction:'',
     goodClassification: '',
-    position: 'left',
-    goodPrice: ''
+    goodPrice: null
   },
 
   goodNameInput:function(e) {
-    // console.log(e.detail.value);
+    console.log(e.detail.value);
     this.setData({
       goodName : e.detail.value,
     })
   },
 
+  goodPriceInput:function(e) {
+    console.log(e.detail.value);
+    this.setData({
+      goodPrice : e.detail.value,
+    })
+  },
+
   goodIntroductionInput:function(e){
-    // console.log(e.detail.value);
+    console.log(e.detail.value);
     this.setData({
       goodIntroduction : e.detail.value,
     })
@@ -83,14 +89,26 @@ Page({
       });
       return;
     }
+
+    const reg = /^[0-9]+(.?[0-9]{1,2})?$/;
+    if(reg.test(this.data.goodPrice) === false){
+      $Message({
+        content: '商品价格必须为数字(最多两位小数)',
+        type: 'error'
+      });
+      return;
+    }
+    var priceNumber = parseFloat(this.data.goodPrice);
+    console.log(priceNumber)
+    var that = this;
     wx.request({
-      url: 'releaseGood_release',
+      url: app.globalData.baseUrl+'/user/',
       data:{
-        releaseUserName:app.globalData.userName,
-        goodName:this.data.goodName,
-        goodIntroduction:this.data.goodIntroduction,
-        goodClassification:this.data.goodClassification,
-        goodPrice:this.data.goodPrice
+        userOpenId:app.globalData.openId,
+        goodName:that.data.goodName,
+        goodIntroduction:that.data.goodIntroduction,
+        goodClassification:that.data.goodClassification,
+        goodPrice:priceNumber//浮点数
       },
       success(res) {
         $Message({

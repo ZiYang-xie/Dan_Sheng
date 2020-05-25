@@ -8,6 +8,10 @@
   font-size: 16px;
 }
 
+.input-price{
+  font-size: 14px;
+}
+
 .input-wrp{
   padding: 20px 15px;
   width: 100%;

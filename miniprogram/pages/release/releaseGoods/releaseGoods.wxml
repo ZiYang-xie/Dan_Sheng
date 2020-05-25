@@ -2,21 +2,27 @@
 <i-panel>
 	<!--物品信息填写input-->
 	<view class="input-wrp">
-	<input class="input-title" name="goodName" auto-focus="true" placeholder="物品名称" bindinput="goodNameInput"/>
+		<input class="input-title" name="goodName" auto-focus="true" placeholder="物品名称" bindinput="goodNameInput" />
 	</view>
 
 	<view class="divLine-top"></view>
+	<view class="input-wrp">
+	<!-- <i-icon i-class="cataIcon" slot="icon" type="financial_fill" size="28" color="#80848f" /> -->
+	  <view>RMB：¥</view>
+	  <input class="input-price" name="goodPrice" placeholder="请输入物品价格" bindinput="goodPriceInput" />
+	</view>
+
+	<view class="divLine-top"></view>
+	<!--分割线-->
 	<view class="textarea-wrp">
-      <textarea  class="textarea" name="goodIntroduction" placeholder="请输入物品简介" bindinput="goodIntroductionInput"/>
-  </view>
+		<textarea class="textarea" name="goodIntroduction" placeholder="请输入物品简介" bindinput="goodIntroductionInput" />
+		</view>
 	
-	<view class="divLine-top"></view><!--分割线-->
+	<view class="divLine-top"></view>
 	<!--物品信息选择cell-->
 	<i-cell-group>
-		<i-cell class="Btn" title="物品分类" bind:click="toggleRight1" is-link><i-icon i-class="cataIcon" slot="icon" type="label" size="28" color="#80848f" /></i-cell>
-		<i-cell class="Btn" title="物品价格" bind:click="toggleLeft2" is-link>
-			<i-icon i-class="cataIcon" slot="icon" type="financial_fill" size="28" color="#80848f" />
-			<p class="Price">{{goodPrice}}</p>
+		<i-cell class="Btn" title="物品分类" bind:click="toggleRight1" is-link>
+		  <i-icon i-class="cataIcon" slot="icon" type="label" size="28" color="#80848f" />
 		</i-cell>
 	</i-cell-group>
 
@@ -24,7 +30,7 @@
 	<i-drawer mode="right" visible="{{showRightCata}}" bind:close="toggleRight1">
 			<view class="demo-container">
 					<i-radio-group current="{{goodClassification}}" bindchange="handleCataChange">
-						<i-radio i-class="cataRadio" wx:for="{{goodType}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}" color="#FE9A2F">
+						<i-radio i-class="cataRadio" wx:for="{{goodType}}" position="left" wx:key="{{item.id}}" value="{{item.name}}" color="#FE9A2F">
 						</i-radio>
 					</i-radio-group>
 			</view>
@@ -36,5 +42,3 @@
 <i-button i-class="issueBtn" shape="circle" bind:click="publishGood" type="error">发布二手商品
 </i-button>
 <i-message id="message" />
-
-

@@ -25,8 +25,7 @@ App({
       userInfo: {},
       openId: null,
       session_key:'',
-      urlPath: "",
-
+      baseUrl:"https://114.115.131.236:8082/api",
       isIphoneX: false
     }
 
