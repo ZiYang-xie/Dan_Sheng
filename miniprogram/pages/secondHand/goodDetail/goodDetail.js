@@ -9,16 +9,16 @@ Page({
   data: {
     currentGoodId: app.globalData.currentDetailGood,
     currentGoodInformation: {
-      goodName: "文具-笔",
+      goodName: "书籍-《浪潮之巅》",
       goodPrice: 5,
       goodReleaseTime: "2020/3/20",
       goodSeller: "谢子飏",
-      goodIntroduction: "几支笔，学霸用它参加过高考，考上了复旦大学，感兴趣的话给我留言哦！",
+      goodIntroduction: "《浪潮之巅》，吴军老师代表作，分析介绍了几大互联网公司的兴衰成败，经典推荐。感兴趣的话给我留言哦！",
       goodId: 1,
-      goodImg: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587917214759&di=7f9b2d53641e3b67ba3f73ef86465dd1&imgtype=0&src=http%3A%2F%2Fwww.szthks.com%2Flocalimg%2F687474703a2f2f6777322e616c6963646e2e636f6d2f62616f2f75706c6f616465642f69322f543174526f355866426758585858585858585f2121302d6974656d5f7069632e6a7067.jpg",
+      goodImg: "https://pic3.zhimg.com/478c568755d930fe8a2f15065b494fe8_1200x500.jpg",
       goodAnswers: [{
           answerPublisher: "吕昌泽",
-          publisherImg: "http://img4.imgtn.bdimg.com/it/u=3374416169,262924133&fm=11&gp=0.jpg",
+          publisherImg: "https://www.youmeitu.com/Upload/20181226/1545793149906684.jpg",
           answerContent: "请问还有卖吗？",
         },
         {

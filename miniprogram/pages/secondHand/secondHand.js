@@ -12,22 +12,26 @@ Page({
       i_class_content: "cards-content"
     }],
     currentGoods: [{
-        goodName: "文具-笔",
-        goodPrice: 5,
+        goodName: "书籍-《浪潮之巅》",
+        goodPrice: 20,
         goodReleaseTime: "2020/3/20",
         goodSeller:"谢子飏",
-        goodIntroduction: "几支笔",
+        goodIntroduction: "《浪潮之巅》吴军力作，推荐各位阅读！",
         goodId: 1,
-        goodImg: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587917214759&di=7f9b2d53641e3b67ba3f73ef86465dd1&imgtype=0&src=http%3A%2F%2Fwww.szthks.com%2Flocalimg%2F687474703a2f2f6777322e616c6963646e2e636f6d2f62616f2f75706c6f616465642f69322f543174526f355866426758585858585858585f2121302d6974656d5f7069632e6a7067.jpg",
+        goodImg: "https://pic3.zhimg.com/478c568755d930fe8a2f15065b494fe8_1200x500.jpg",
+        browseNum: 24,
+        praiseNum: 10,
       },
       {
-        goodName: "数学分析",
-        goodPrice: 30,
+        goodName: "配饰-手表",
+        goodPrice: 50,
         goodReleaseTime: "2020/3/25",
-        goodSeller: "法外狂徒张三",
-        goodIntroduction: "数学分析，从入门到入土",
+        goodSeller: "张三",
+        goodIntroduction: "一款创意手表，喜欢的可以看一看啊",
         goodId: 2,
-        goodImg: "http://img3.imgtn.bdimg.com/it/u=86994036,3090435963&fm=15&gp=0.jpg"
+        goodImg: "https://cdn03.pinkoi.com/pinkoi.magz/tvzvjB9F/14650149183643.jpg",
+        browseNum: 76,
+        praiseNum: 22,
       }
     ]
   },
@@ -109,5 +113,9 @@ Page({
       url: 'goodDetail/goodDetail',
     })
   },
+
+  praiseHandle: function (e) {
+    this.setData.praiseNum(praiseNum+1);
+  }
 
 })
