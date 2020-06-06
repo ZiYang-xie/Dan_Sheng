@@ -17,7 +17,7 @@ Page({
         goodReleaseTime: "2020/3/20",
         goodSeller:"谢子飏",
         goodIntroduction: "《浪潮之巅》吴军力作，推荐各位阅读！",
-        goodId: 1,
+        goodId: 11,
         goodImg: "https://pic3.zhimg.com/478c568755d930fe8a2f15065b494fe8_1200x500.jpg",
         browseNum: 24,
         praiseNum: 10,
@@ -33,7 +33,7 @@ Page({
         browseNum: 76,
         praiseNum: 22,
       }
-    ]
+    ],
   },
 
   changeSubPage({
@@ -45,10 +45,10 @@ Page({
     });
     wx.request({
       //将当前页面是推荐还是热榜发给后端
-      url: '/secondHand_changeSubPage',
+      url: app.globalData.baseUrl+'/secondHand_changeSubPage',
       data: {
         currentSubPage: currentSubPage,
-        userName: app.globalData.userName, //全局变量
+        openId: app.globalData.openId,
       },
       success(res) {
         //得到返回的数据
@@ -62,14 +62,12 @@ Page({
 
   onLoad: function () {
     wx.request({
-      //默认页面是推荐，所以进入时应该
-      url: '/secondHand_recommend',
+      //默认页面是推荐
+      url: app.globalData.baseUrl+'/secondHand_recommend',
       data: {
-        //发送给后端当前用户的名称
-        userName: app.globalData.userName,
+        openId: app.globalData.openId,
       },
       success(res) {
-        //得到返回的数据，根据用户的标签进行商品推荐
         this.setData({
           currentGoods: res.data.currentGoods
         })
@@ -91,7 +89,7 @@ Page({
     var searchValue = e.detail.value.searchValue;
     wx.request({
       //将搜索内容发给后端
-      url: '/secondHand_search',
+      url: app.globalData.baseUrl+'/secondHand_search',
       data: {
         searchValue: searchValue,
       },
@@ -115,7 +113,27 @@ Page({
   },
 
   praiseHandle: function (e) {
-    this.setData.praiseNum(praiseNum+1);
+    var targetGoodId = e.currentTarget.dataset.good_id;
+    console.log(targetGoodId)
+    wx.request({
+      //将搜索内容发给后端
+      url: app.globalData.baseUrl+'/secondHand_praise',
+      data: {
+        praiseGoodId:targetGoodId,
+      },
+      success(res) {}
+    });
+    var length = this.data.currentGoods.length;
+    for(var i = 0; i<length;i++){
+      if(this.data.currentGoods[i].goodId === targetGoodId){
+        var currentGoods = this.data.currentGoods;
+        currentGoods[i].praiseNum +=1;
+        this.setData({
+          currentGoods : currentGoods
+        })
+        return;
+      }
+    }
   }
 
 })

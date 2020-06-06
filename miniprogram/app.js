@@ -25,7 +25,7 @@ App({
       userInfo: {},
       openId: null,
       session_key:'',
-      baseUrl:"https://114.115.131.236:8082/api",
+      baseUrl:"flyhouselife.cn/api",
       isIphoneX: false
     }
 
