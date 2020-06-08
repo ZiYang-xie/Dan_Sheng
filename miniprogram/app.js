@@ -25,7 +25,7 @@ App({
       userInfo: {},
       openId: null,
       session_key:'',
-      baseUrl:"flyhouselife.cn/api",
+      baseUrl:"https://flyhouselife.cn",
       isIphoneX: false
     }
 

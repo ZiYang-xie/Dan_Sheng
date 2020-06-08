@@ -76,6 +76,9 @@ Page({
             data: {
               code: res.code
             },
+            header: {'content-type': 'application/x-www-form-urlencoded'},
+            method: 'POST',
+            dataType: 'json',
             success(resp) {
               app.globalData.openId = resp.data.openId;
               app.globalData.isLogin = true;

@@ -61,6 +61,7 @@ Page({
   },
 
   onLoad: function () {
+    var that = this;
     wx.request({
       //默认页面是推荐
       url: app.globalData.baseUrl+'/secondHand_recommend',
@@ -68,7 +69,7 @@ Page({
         openId: app.globalData.openId,
       },
       success(res) {
-        this.setData({
+        that.setData({
           currentGoods: res.data.currentGoods
         })
         console.log(res.data)
