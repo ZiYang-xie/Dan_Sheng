@@ -16,7 +16,6 @@ App({
     }
 
     this.globalData = {
-      userName: "吕昌泽",
       currentInformationSender: "",
       currentDetailGood: 0, //存当前货物的id
       currentDetailTalk: 0, //存当前讨论的id
@@ -25,7 +24,7 @@ App({
       userInfo: {},
       openId: null,
       session_key:'',
-      baseUrl:"https://flyhouselife.cn",
+      baseUrl:"https://flyhouselife.cn:8443",
       isIphoneX: false
     }
 

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName: "旦生",
+    userName: "",
     userImgsrc: "../../style/icon/mainIcon/mainIcon.png",
     visible: false,
     actions: [{
@@ -24,7 +24,7 @@ Page({
         color: '#959595'
       }
     ],
-    isLogin: '',
+    isLogin: app.globalData.isLogin,
   },
   /**
    * 用户点击改变头像事件
@@ -67,6 +67,7 @@ Page({
   },
 
   gotoLogin() {
+    var that = this;
     wx.login({
       success(res) {
         console.log(res.code)//调用wx.login()可获取临时登录凭证code
@@ -76,12 +77,14 @@ Page({
             data: {
               code: res.code
             },
-            header: {'content-type': 'application/x-www-form-urlencoded'},
-            method: 'POST',
-            dataType: 'json',
             success(resp) {
-              app.globalData.openId = resp.data.openId;
+              var json = JSON.parse(resp.data.data)
+              console.log(json.openid)
+              app.globalData.openId = json.openid;
               app.globalData.isLogin = true;
+              that.setData({
+                isLogin: app.globalData.isLogin,
+              })
             }
           })
         } else {

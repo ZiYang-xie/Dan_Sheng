@@ -28,22 +28,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      currentUserName:app.globalData.userName,
-    })
-    wx.request({
-      url: '/information_onLoad',
-      data:{
-        userName:this.data.currentUserName,
-      },
-      success(res){
-        this.setData({
-          myInformation:res.data.myInformation,
-        })
-        console.log(res.data)
-      }
-    })
-    console.log(this.data.currentUserName)
   },
 
   gotoDetail(e){
@@ -69,6 +53,39 @@ Page({
         current:'information'
       })
     }
+    if(app.globalData.openId === null){
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {//这里是点击了确定以后
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: '../mine/mine',
+            })
+          } else {//这里是点击了取消以后
+            return
+          }
+        }
+      })
+    }
+    
+    this.setData({
+      currentUserName:app.globalData.userName,
+    })
+    wx.request({
+      url: '/information_onLoad',
+      data:{
+        userName:this.data.currentUserName,
+      },
+      success(res){
+        this.setData({
+          myInformation:res.data.myInformation,
+        })
+        console.log(res.data)
+      }
+    })
+    console.log(this.data.currentUserName)
   },
 
   /**

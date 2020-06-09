@@ -3,9 +3,9 @@
 	<view class="topic">{{currentTalkInformation.talkName}}</view>
 	<view class="tPublisher">发起人：{{currentTalkInformation.talkPublisher}}</view>
 </i-panel>
-<block class="answerContainer" wx:for="{{currentTalkInformation.talkAnswers}}" data-item="item">
+<block class="answerContainer" wx:for="{{talkAnswers}}" data-item="item">
 	<i-panel>
-		<image class="aPublisherImg" src="{{item.publisherImg}}"></image>
+		<!-- <image class="aPublisherImg" src="{{item.publisherImg}}"></image> -->
 		<view class="aPublisher">{{item.answerPublisher}}</view>
 		<view class="aContent">{{item.answerContent}}</view>
 	</i-panel>

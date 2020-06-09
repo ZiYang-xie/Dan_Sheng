@@ -36,46 +36,28 @@ Page({
     ],
   },
 
-  changeSubPage({
-    detail
-  }) {
+  changeSubPage({detail}) {
     var currentSubPage = detail.key;
     this.setData({
       currentSubPage: currentSubPage,
     });
-    wx.request({
-      //将当前页面是推荐还是热榜发给后端
-      url: app.globalData.baseUrl+'/secondHand_changeSubPage',
-      data: {
-        currentSubPage: currentSubPage,
-        openId: app.globalData.openId,
-      },
-      success(res) {
-        //得到返回的数据
-        this.setData({
-          currentGoods: res.data.currentGoods
-        })
-        console.log(res.data)
-      }
-    });
-  },
-
-  onLoad: function () {
     var that = this;
     wx.request({
-      //默认页面是推荐
-      url: app.globalData.baseUrl+'/secondHand_recommend',
+      //将当前页面是推荐还是热榜发给后端
+      url: app.globalData.baseUrl+'/secondHand_view',
       data: {
-        openId: app.globalData.openId,
+        currentSubPage: currentSubPage,
+        userOpenId: app.globalData.openId,
       },
+      method:"POST",
       success(res) {
+        //得到返回的数据
         that.setData({
           currentGoods: res.data.currentGoods
         })
         console.log(res.data)
       }
     });
-
   },
 
   onShow: function () {
@@ -84,9 +66,40 @@ Page({
         current: 'secondHand'
       })
     }
+    if(app.globalData.openId === null){
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {//这里是点击了确定以后
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: '../mine/mine',
+            })
+          } else {//这里是点击了取消以后
+            return
+          }
+        }
+      })
+    }
+    var that = this;
+    wx.request({
+      url: app.globalData.baseUrl+'/secondHand_view',
+      data: {
+        userOpenId: app.globalData.openId,
+      },
+      method:"POST",
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          currentGoods: res.data.currentGoods
+        })
+      }
+    });
   },
 
   formSubmit: function (e) {
+    var that = this;
     var searchValue = e.detail.value.searchValue;
     wx.request({
       //将搜索内容发给后端
@@ -94,15 +107,15 @@ Page({
       data: {
         searchValue: searchValue,
       },
+      method:"POST",
       success(res) {
         //得到返回的数据
-        this.setData({
+        that.setData({
           currentGoods: res.data.currentGoods,
         })
         console.log(res.data)
       }
     });
-    console.log('form发生了submit事件，携带数据为：', searchValue)
   },
 
   gotoDetail: function (e) {
@@ -122,6 +135,7 @@ Page({
       data: {
         praiseGoodId:targetGoodId,
       },
+      method:"POST",
       success(res) {}
     });
     var length = this.data.currentGoods.length;

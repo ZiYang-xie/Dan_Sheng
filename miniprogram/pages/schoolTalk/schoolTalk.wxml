@@ -11,9 +11,9 @@
 
 <view class="cards-wrp">
   <block wx:for="{{currentTalks}}" data-item="item">
-    <i-card i-class-img="cards-img" i-class="cards" title="{{item.talkName}}" extra="ID: {{item.talkId}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-      <view slot="content">{{item.talkIntroduction}}</view>
-      <view slot="content">{{item.talkPublisher}}</view>
+    <i-card i-class-img="cards-img" i-class="cards" title="{{item.talkName}}">
+      <view slot="content">发起人：{{item.talkPublisher}}</view>
+      <view slot="content">简介：{{item.talkIntroduction}}</view>
       <button slot="content" bindtap="gotoDetail" data-talk_id="{{item.talkId}}">查看详情</button>
     </i-card>
   </block>

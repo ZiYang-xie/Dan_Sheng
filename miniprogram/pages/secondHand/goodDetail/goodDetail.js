@@ -1,6 +1,8 @@
 // miniprogram/pages/secondHand/goodDetail/goodDetail.js
 const app = getApp()
-const {$Message} = require('../../../dist/base/index');
+const {
+  $Message
+} = require('../../../dist/base/index');
 Page({
 
   /**
@@ -16,42 +18,18 @@ Page({
       goodIntroduction: "《浪潮之巅》，吴军老师代表作，分析介绍了几大互联网公司的兴衰成败，经典推荐。感兴趣的话给我留言哦！",
       goodId: 1,
       goodImg: "https://pic3.zhimg.com/478c568755d930fe8a2f15065b494fe8_1200x500.jpg",
-      goodAnswers: [{
-          answerPublisher: "吕昌泽",
-          publisherImg: "https://www.youmeitu.com/Upload/20181226/1545793149906684.jpg",
-          answerContent: "请问还有卖吗？",
-        },
-        {
-          answerPublisher: "杨朝晖",
-          publisherImg: "https://wimg.ruan8.com/uploadimg/image/20190131/20190131130305_65861.jpg",
-          answerContent: "我最爱这个了！",
-        }
-      ]
     },
-    myAnswer: '',
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      currentGoodId: app.globalData.currentDetailGood,
-    })
-    wx.request({
-      //将当前页面的讨论Id发给后端
-      url: '/goodDetail_onLoad',
-      data: {
-        currentGoodId: this.data.currentGoodId,
+    goodAnswers: [
+      {
+        answerPublisher: "吕昌泽",
+        answerContent: "请问还有卖吗？",
       },
-      success(res) {
-        //得到返回的数据
-        this.setData({
-          currentGoodInformation: res.data.currentGoodInformation
-        })
-        console.log(res.data)
+      {
+        answerPublisher: "杨朝晖",
+        answerContent: "我最爱这个了！",
       }
-    });
+    ],
+    myAnswer: '',
   },
 
   inputAnswer(e) {
@@ -63,43 +41,95 @@ Page({
 
   publishGoodAnswer() {
     const blank = /^[ ]+$/;
-    if(blank.test(this.data.myAnswer) || this.data.myAnswer===''){
+    if (blank.test(this.data.myAnswer) || this.data.myAnswer === '') {
       $Message({
         content: '留言不得为空',
         type: 'error'
       });
       return;
     }
-    let list = this.data.currentGoodInformation;
-    list.goodAnswers.push({
-      answerPublisher: app.globalData.userName,
+    var list = this.data.goodAnswers;
+    list.push(
+      {
+      answerPublisher: app.globalData.userInfo.nickName,
       answerContent: this.data.myAnswer,
-    });
+      }
+      );
     this.setData({
-      currentGoodInformation: list,
+      goodAnswers: list,
     })
+
+    var that = this;
     wx.request({
-      url: '/goodDetail_addAnswer',
+      url: app.globalData.baseUrl+'/goodDetail_addAnswer',
       data: {
-        answerPublisher: app.globalData.userName,
-        answerContent: this.data.myAnswer,
+        answerPublisher: app.globalData.openId,
+        answerContent: that.data.myAnswer,
       },
+      method:"POST",
       success(res) {
+        $Message({
+          content: '留言成功',
+          type: 'success'
+        });
       }
     });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(app.globalData.openId === null){
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {//这里是点击了确定以后
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: '../mine/mine',
+            })
+          } else {//这里是点击了取消以后
+            // wx.navigateBack(1)
+            return
+          }
+        }
+      })
+    }
+    var that = this;
+    this.setData({
+      currentGoodId: app.globalData.currentDetailGood,
+    })
+    wx.request({
+      //将当前页面的讨论Id发给后端
+      url: app.globalData.baseUrl+'/goodDetail_onShow',
+      data: {
+        currentGoodId: that.data.currentGoodId,
+      },
+      method:"POST",
+      success(res) {
+        //得到返回的数据
+        console.log(res.data)
+        that.setData({
+          currentGoodInformation: res.data.currentGoodInformation,
+          goodAnswers:res.data.goodAnswers,
+        })
+      }
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {},
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
   },
 

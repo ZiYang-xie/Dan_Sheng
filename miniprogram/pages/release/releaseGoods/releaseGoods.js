@@ -102,15 +102,17 @@ Page({
     console.log(priceNumber)
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl+'/user/',
+      url: app.globalData.baseUrl+'/release_releaseGood',
       data:{
         userOpenId:app.globalData.openId,
         goodName:that.data.goodName,
         goodIntroduction:that.data.goodIntroduction,
         goodClassification:that.data.goodClassification,
-        goodPrice:priceNumber//浮点数
+        goodPrice:priceNumber
       },
+      method:"POST",
       success(res) {
+        console.log(res.data)
         $Message({
           content: '发布成功',
           type: 'success'
@@ -136,7 +138,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(app.globalData.openId === null){
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {//这里是点击了确定以后
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: '../../mine/mine',
+            })
+          } else {//这里是点击了取消以后
+            return
+          }
+        }
+      })
+    }
   },
 
   /**

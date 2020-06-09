@@ -6,42 +6,41 @@ Page({
    */
   data: {
     currentSubPage: "recommend",
-    currentTalks: [{
-      talkName: "hhh",
-      talkIntroduction: "无敌",
-      talkId: "212",
-      talkPublisher: "吕昌泽",
-    }, ]
+    currentTalks: [
+      {
+        talkName: "在绩点方面无敌是怎样一种感觉？",
+        talkIntroduction: "来评论我",
+        talkId: 212,
+        talkPublisher: "吕昌泽",
+      },
+    ]
   },
 
-  handleChangeScroll({
-    detail
-  }) {
+  handleChangeScroll({detail}) {
     var currentSubPage = detail.key;
     this.setData({
       currentSubPage: currentSubPage
     });
-    
+    var that = this;
     wx.request({
       //将当前页面的主题发给后端
-      url: '/schoolTalk_changeSubPage',
+      url: app.globalData.baseUrl + '/schoolTalk_view',
       data: {
-        currentSubPage: currentSubPage,
-        userName: app.globalData.userName, //全局变量
+        userOpenId: app.globalData.openId,
+        currentSubPage:currentSubPage,
       },
+      method: "POST",
       success(res) {
-        //得到返回的数据
-        this.setData({
+        console.log(res.data)
+        that.setData({
           currentTalks: res.data.currentTalks
         });
-        console.log(res.data)
       }
     });
   },
 
   gotoDetail: function (e) {
     app.globalData.currentDetailTalk = e.currentTarget.dataset.talk_id;
-    console.log(app.globalData.currentDetailTalk + " 1");
     wx.navigateTo({
       url: 'talkDetail/talkDetail',
     })
@@ -50,23 +49,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.request({
-      //默认页面是推荐，所以进入时应该获得推荐的数据
-      url: '/schoolTalk_recommend',
-      data: {
-        //发送给后端当前用户的名称
-        userName: app.globalData.userName,
-      },
-      success(res) {
-        //得到返回的数据，根据用户的标签进行商品推荐
-        this.setData({
-          currentTalks: res.data.currentTalks,
-        })
-        console.log(res.data)
-      }
-    });
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -84,6 +67,36 @@ Page({
         current: 'schoolTalk'
       })
     }
+    if (app.globalData.openId === null) {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) { //这里是点击了确定以后
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: '../mine/mine',
+            })
+          } else { //这里是点击了取消以后
+            return
+          }
+        }
+      })
+    }
+    var that = this;
+    wx.request({
+      url: app.globalData.baseUrl + '/schoolTalk_view',
+      data: {
+        userOpenId: app.globalData.openId,
+      },
+      method: "POST",
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          currentTalks: res.data.currentTalks,
+        })
+      }
+    });
   },
 
   /**
