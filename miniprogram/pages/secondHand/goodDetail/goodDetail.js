@@ -63,6 +63,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl+'/goodDetail_addAnswer',
       data: {
+        currentGoodId: app.globalData.currentDetailGood,
         answerPublisher: app.globalData.openId,
         answerContent: that.data.myAnswer,
       },

@@ -37,6 +37,7 @@ Page({
       url: app.globalData.baseUrl+'/publishTalkAnswer_addAnswer',
       data: {
         userOpenId: that.data.userOpenId,
+        currentTalkId:app.globalData.currentDetailTalk,
         answerContent: that.data.myAnswer,
       },
       method:"POST",

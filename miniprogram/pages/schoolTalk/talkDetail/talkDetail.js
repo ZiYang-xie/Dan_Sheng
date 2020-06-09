@@ -49,7 +49,8 @@ Page({
       success(res) {
         console.log(res.data)
         that.setData({
-          currentTalkInformation : res.data.currentTalkInformation
+          currentTalkInformation : res.data.currentTalkInformation,
+          talkAnswers:res.data.talkAnswers,
         })
       }
     });
