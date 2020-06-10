@@ -8,7 +8,7 @@ Page({
    */
   data: {
     userName: "",
-    userImgsrc: "../../style/icon/mainIcon/mainIcon.png",
+    userImgsrc: "../../style/icon/userImg/user.png",
     visible: false,
     actions: [{
         name: '相册',
