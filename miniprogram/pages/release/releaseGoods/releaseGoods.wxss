@@ -1,4 +1,9 @@
 /* miniprogram/pages/releaseGoods/releaseGoods.wxss */
+.OverContainer
+{
+  width: 750rpx;
+}
+
 .mainInfo{
   height: 400rpx;
 }
@@ -14,19 +19,16 @@
 
 .input-wrp{
   padding: 20px 15px;
-  width: 100%;
   background-color: #fff;
 }
 
 .textarea{
-  width: 90%;
   height: 6em;
   font-size: 14px;
 }
 
 .textarea-wrp {
   padding: 20px 15px;
-  width: 100%;
   background-color: #fff;
 }
 

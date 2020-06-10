@@ -1,5 +1,5 @@
 <!--miniprogram/pages/releaseGoods/releaseGoods.wxml-->
-<i-panel>
+<i-panel class="OverContainer">
 	<!--物品信息填写input-->
 	<view class="input-wrp">
 		<input class="input-title" name="goodName" auto-focus="true" placeholder="物品名称" bindinput="goodNameInput" />
