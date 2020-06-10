@@ -30,7 +30,8 @@
   display: inline-block;
   vertical-align: middle;
   font-weight: bold;
-  line-height: 100px;
+  line-height: 50px;
+  padding-inline: 10px;
   height: 100%;
 }
 

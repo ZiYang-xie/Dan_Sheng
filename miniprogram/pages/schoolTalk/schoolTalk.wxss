@@ -1,5 +1,12 @@
 .tabs view{
-  width: 200rpx !important;
+  width: 250rpx !important;
+}
+
+.title
+{
+  display: inline-block;
+  font-size: 18px;
+  padding: 15rpx;
 }
 
 .cards{
@@ -9,4 +16,21 @@
 
 .cards-wrp{
   margin-top: 20px;
+}
+
+.Footer
+{
+  display: inline;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.browse
+{
+  float: left;
+}
+
+.praise
+{
+  float: right;
 }

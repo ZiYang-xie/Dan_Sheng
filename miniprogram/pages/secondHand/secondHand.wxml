@@ -10,7 +10,7 @@
 
 <view class="goods">
 	<block wx:for="{{currentGoods}}" data-item="item">
-		<i-card  i-class-img="cards-img" i-class="cards" title="{{item.goodName}}" extra="¥ {{item.goodPrice}}" thumb="{{item.goodImg}}" >
+		<i-card  i-class-img="cards-img" i-class="cards" i-card-header-title="title" title="{{item.goodName}}" extra="¥ {{item.goodPrice}}" thumb="{{item.goodImg}}" >
 			<view slot="content" bindtap="gotoDetail" data-good_id="{{item.goodId}}">{{item.goodIntroduction}}</view>
 			<view slot="content">售卖人：{{item.goodSeller}}</view>
 			<view class="Footer" slot="footer">

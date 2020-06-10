@@ -2,19 +2,24 @@
     <i-tab id='1' key="recommend" title="推荐"></i-tab>
     <i-tab id='2' key="focus" title="关注"></i-tab>
     <i-tab id='3' key="hotRank" title="热榜"></i-tab>
-    <i-tab id='4' key="chooseCourse" title="选课"></i-tab>
-    <i-tab id='5' key="studyAbroad" title="留学"></i-tab>
-    <i-tab id='6' key="entertainment" title="娱乐"></i-tab>
-    <i-tab id='7' key="makeFriends" title="交友"></i-tab>
-    <i-tab id='8' key="others" title="其他"></i-tab>
+
 </i-tabs>
 
 <view class="cards-wrp">
   <block wx:for="{{currentTalks}}" data-item="item">
-    <i-card i-class-img="cards-img" i-class="cards" title="{{item.talkName}}">
-      <view slot="content">发起人：{{item.talkPublisher}}</view>
+    <i-card i-class-img="cards-img" i-class="cards" i-card-header-title="title" title="{{item.talkName}}" bindtap="gotoDetail">
       <view slot="content">简介：{{item.talkIntroduction}}</view>
-      <button slot="content" bindtap="gotoDetail" data-talk_id="{{item.talkId}}">查看详情</button>
+      <view class="Footer" slot="footer">
+				<view class="browse">
+					<i-icon type="browse" size="28"/>
+					<text class="browseText">{{item.browseNum}} 人看过</text>
+				</view>
+				<view class="praise" bindtap="praiseHandle" data-good_id="{{item.goodId}}">
+					<i-icon type="praise" size="26"/>
+					<text class="browseText">{{item.praiseNum}} 赞</text>
+				</view>
+			</view>
+      <!--<button slot="content"  data-talk_id="{{item.talkId}}">查看详情</button>!-->
     </i-card>
   </block>
 </view>
