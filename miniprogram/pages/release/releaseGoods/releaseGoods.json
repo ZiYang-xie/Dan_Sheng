@@ -1,14 +1,14 @@
 {
   "usingComponents": {
     "i-input": "../../../dist/input/index",
-    "i-input-number": "../../dist/input-number/index",
+    "i-input-number": "../../../dist/input-number/index",
     "i-drawer": "../../../dist/drawer/index",
     "i-button": "../../../dist/button/index",
-    "i-radio-group": "../../dist/radio-group/index",
-    "i-radio": "../../dist/radio/index",
-    "i-cell-group": "../../dist/cell-group/index",
-    "i-cell": "../../dist/cell/index",
-    "i-icon": "../../dist/icon/index",
+    "i-radio-group": "../../../dist/radio-group/index",
+    "i-radio": "../../../dist/radio/index",
+    "i-cell-group": "../../../dist/cell-group/index",
+    "i-cell": "../../../dist/cell/index",
+    "i-icon": "../../../dist/icon/index",
     "i-message": "../../../dist/message/index"
   }
 }
