@@ -6,31 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName:app.globalData.userName,
-    userInformation:{
-      userStudentId:"18302010026",
-      userEmail:"18302010026@fudan.edu.cn"
-    },
+    userInfo:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userName:app.globalData.userName,
-    })
-    wx.request({
-      url: 'mineDetail_onLoad',
-      data:{
-        userName:app.globalData.userName,
-      },
-      success(res) {
-        this.setData({
-          userInformation : res.data.userInformation,
-        })
-      }
-    })
   },
 
   /**
@@ -44,7 +26,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfo:app.globalData.userInfo,
+    })
   },
 
   /**

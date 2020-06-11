@@ -66,22 +66,6 @@ Page({
         current: 'secondHand'
       })
     }
-    if(app.globalData.openId === null){
-      wx.showModal({
-        title: '提示',
-        content: '请先登录',
-        success: function (res) {
-          if (res.confirm) {//这里是点击了确定以后
-            console.log('用户点击确定')
-            wx.switchTab({
-              url: '../mine/mine',
-            })
-          } else {//这里是点击了取消以后
-            return
-          }
-        }
-      })
-    }
     var that = this;
     wx.request({
       url: app.globalData.baseUrl+'/secondHand_view',

@@ -8,7 +8,7 @@ Page({
    */
   data: {
     userName: "",
-    userImgsrc: "../../style/icon/userImg/user.png",
+    userImgsrc: "../../images/user-unlogin.png",
     visible: false,
     actions: [{
         name: '相册',
@@ -66,29 +66,56 @@ Page({
     })
   },
 
-  gotoLogin() {
+  clickLogin() {
     var that = this;
-    wx.login({
-      success(res) {
-        console.log(res.code)//调用wx.login()可获取临时登录凭证code
-        if (res.code) {
-          wx.request({
-            url: app.globalData.baseUrl+'/user/login',
-            data: {
-              code: res.code
-            },
-            success(resp) {
-              var json = JSON.parse(resp.data.data)
-              console.log(json.openid)
-              app.globalData.openId = json.openid;
-              app.globalData.isLogin = true;
-              that.setData({
-                isLogin: app.globalData.isLogin,
-              })
+    wx.showModal({
+      title: '提示',
+      content: '是否允许小程序获取微信授权',
+      success: function (res) {
+        if (res.confirm) {
+          wx.getSetting({
+            success(res) {
+              if (res.authSetting['scope.userInfo']) {
+                //若已经授权，可以直接调用 getUserInfo 获取各个信息
+                wx.getUserInfo({
+                  success: function (res) {
+                    console.log(res.userInfo)
+                    app.globalData.userInfo = res.userInfo
+                    that.setData({
+                      userName: res.userInfo.nickName,
+                      userImgsrc: res.userInfo.avatarUrl
+                    })
+                  }
+                })
+              }
+            }
+          })
+          wx.login({
+            success(res) {
+              console.log(res.code) //调用wx.login()可获取临时登录凭证code
+              if (res.code) {
+                wx.request({
+                  url: app.globalData.baseUrl + '/user/login',
+                  data: {
+                    code: res.code
+                  },
+                  success(resp) {
+                    var json = JSON.parse(resp.data.data)
+                    console.log(json.openid)
+                    app.globalData.openId = json.openid;
+                    app.globalData.isLogin = true;
+                    that.setData({
+                      isLogin: app.globalData.isLogin,
+                    })
+                  }
+                })
+              } else {
+                console.log('登录失败！' + res.errMsg)
+              }
             }
           })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          return
         }
       }
     })
@@ -98,29 +125,6 @@ Page({
     this.setData({
       isLogin: app.globalData.isLogin, //默认为未登录
     })
-    // 查看是否授权
-    var that = this;
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          //若已经授权，可以直接调用 getUserInfo 获取各个信息
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res.userInfo)
-              app.globalData.userInfo = res.userInfo
-              that.setData({
-                userName: res.userInfo.nickName,
-                userImgsrc: res.userInfo.avatarUrl
-              })
-            }
-          })
-        }
-      }
-    })
-  },
-
-  register() {
-
   },
 
   /**

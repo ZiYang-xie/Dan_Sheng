@@ -1,7 +1,9 @@
 <!--miniprogram/pages/mine/detail/detail.wxml-->
 <i-cell-group>
-    <i-cell title="我的姓名" label="{{userName}}"></i-cell>
-    <i-cell title="我的学号" label="{{userInformation.userStudentId}}"></i-cell>
-    <i-cell title="我的邮箱" label="{{userInformation.userEmail}}"></i-cell>
+    <i-cell title="我的用户名" label="{{userInfo.nickName}}"></i-cell>
+    <i-cell title="我的国家" label="{{userInfo.country}}"></i-cell>
+    <i-cell title="我的省份" label="{{userInfo.province}}"></i-cell>
+    <i-cell title="我的性别" wx-if="{{userInfo.gender === 1}}" label="男"></i-cell>
+    <i-cell title="我的性别" wx-if="{{userInfo.gender === 2}}" label="女"></i-cell>
 </i-cell-group>
 

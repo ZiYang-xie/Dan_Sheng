@@ -1,14 +1,21 @@
 <!--miniprogram/pages/mine/issue/issue.wxml-->
-<i-tabs i-class="tabs" current="{{currentTab}}" color="#ff793f" bindchange="changeTab">
+<i-tabs i-class="tabs" current="{{currentSubPage}}" color="#ff793f" bindchange="changeSubPage">
 	<i-tab key="good" title="商品"></i-tab>
 	<i-tab key="talk" title="讨论"></i-tab>
 </i-tabs>
 
 <view class="goods">
-	<block wx:if="{{currentTab}}==good" wx:for="{{currentGoods}}" data-item="item">
-			<i-card i-class-img="cards-img" i-class="cards" title="{{item.goodName}}" extra="¥ {{item.goodPrice}}" thumb="{{item.goodImg}}" bindtap="showImg">
+	<block wx:if="{{currentSubPage==='good'}}" wx:for="{{issuedGoods}}" data-item="item">
+			<i-card i-class-img="cards-img" i-class="cards" title="{{item.goodName}}" extra="¥ {{item.goodPrice}}">
 				<view slot="content">{{item.goodIntroduction}}</view>
-				<button slot="footer" bindtap="gotoDetail" data-good_id="{{item.goodId}}">查看详情</button>
+				<button slot="footer" data-good_id="{{item.goodId}}" bindtap="gotoGoodDetail">查看详情</button>
+			</i-card>
+	</block>
+
+	<block wx:if="{{currentSubPage==='talk'}}" wx:for="{{issuedTalks}}" data-item="item">
+			<i-card i-class-img="cards-img" i-class="cards" title="{{item.talkName}}">
+				<view slot="content">{{item.talkIntroduction}}</view>
+				<button slot="footer" data-talk_id="{{item.talkId}}" bindtap="gotoTalkDetail">查看详情</button>
 			</i-card>
 	</block>
 </view>

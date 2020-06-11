@@ -2,7 +2,6 @@
     <i-tab id='1' key="recommend" title="推荐"></i-tab>
     <i-tab id='2' key="focus" title="关注"></i-tab>
     <i-tab id='3' key="hotRank" title="热榜"></i-tab>
-
 </i-tabs>
 
 <view class="cards-wrp">

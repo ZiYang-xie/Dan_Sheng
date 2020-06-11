@@ -6,29 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName:app.globalData.userName,
-    subseriptions:["小红书","闲鱼","微信"]
+    mySubscriptions: ["1", "2", "3"],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.setData({
-      userName:app.globalData.userName,
-    })
-    wx.request({
-      url: 'mineSubscription_onLoad',
-      data:{
-        userName:app.globalData.userName,
-      },
-      success(res) {
-        this.setData({
-          subseriptions : res.data.subseriptions,
-        })
-      }
-    })
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -41,7 +25,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.request({
+      url: app.globalData.baseUrl + '/mine_subscription_onShow',
+      data: {
+        userOpenId: app.globalData.openId,
+      },
+      method: "POST",
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          mySubscriptions: res.data.data.mySubscriptions,
+        })
+      }
+    })
   },
 
   /**

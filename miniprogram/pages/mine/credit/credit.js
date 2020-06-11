@@ -6,9 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName:app.globalData.userName,
     creditValue:100,
-    creditImg: ""
+    creditImg: "",
   },
 
 
@@ -16,38 +15,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userName:app.globalData.userName,
-    })
-    wx.request({
-      url: 'mineCredit_onLoad',
-      data:{
-        userName:app.globalData.userName,
-      },
-      success(res) {
-        this.setData({
-          creditValue : res.data.creditValue,
-        })
-      }
-    })
-
-    //此语句暂不工作，执行仅执行最后一个else
-    if(this.creditValue < 60){
-      this.setData({
-        creditImg:"./creditImg/BadCredit.png"
-      })
-    } 
-    else if(this.creditValue >=60 && this.creditValue <90){
-      this.setData({
-        creditImg:"./creditImg/GoodCredit.png"
-      })
-    }
-    else{
-      this.setData({
-        creditImg:"./creditImg/ExcellentCredit.png"
-      })
-    }
-    
   },
 
   /**
@@ -60,8 +27,36 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function () { 
+    var that = this;
+    wx.request({
+      url: app.globalData.baseUrl+'/mine_credit_onShow',
+      data:{
+        userOpenId:app.globalData.openId,
+      },
+      method:"POST",
+      success(res){
+        that.setData({
+          creditValue:res.data.data.creditValue,
+        })
+      }
+    })
+   
+    if(that.data.creditValue < 60){
+      that.setData({
+        creditImg:"./creditImg/BadCredit.png"
+      })
+    } 
+    else if(that.data.creditValue >=60 && that.data.creditValue <90){
+      that.setData({
+        creditImg:"./creditImg/GoodCredit.png"
+      })
+    }
+    else{
+      that.setData({
+        creditImg:"./creditImg/ExcellentCredit.png"
+      })
+    }
   },
 
   /**
