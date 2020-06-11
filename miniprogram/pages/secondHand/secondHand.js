@@ -114,7 +114,6 @@ Page({
     var targetGoodId = e.currentTarget.dataset.good_id;
     console.log(targetGoodId)
     wx.request({
-      //将搜索内容发给后端
       url: app.globalData.baseUrl+'/secondHand_praise',
       data: {
         praiseGoodId:targetGoodId,
@@ -123,11 +122,12 @@ Page({
       success(res) {}
     });
     var length = this.data.currentGoods.length;
+    var that = this;
     for(var i = 0; i<length;i++){
-      if(this.data.currentGoods[i].goodId === targetGoodId){
-        var currentGoods = this.data.currentGoods;
+      if(that.data.currentGoods[i].goodId === targetGoodId){
+        var currentGoods = that.data.currentGoods;
         currentGoods[i].praiseNum +=1;
-        this.setData({
+        that.setData({
           currentGoods : currentGoods
         })
         return;

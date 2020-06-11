@@ -6,14 +6,14 @@
 
 <view class="cards-wrp">
   <block wx:for="{{currentTalks}}" data-item="item">
-    <i-card i-class-img="cards-img" i-class="cards" i-card-header-title="title" title="{{item.talkName}}" bindtap="gotoDetail">
-      <view slot="content">简介：{{item.talkIntroduction}}</view>
+    <i-card i-class-img="cards-img" i-class="cards" i-card-header-title="title" title="{{item.talkName}}" >
+      <view slot="content" bindtap="gotoDetail">简介：{{item.talkIntroduction}}</view>
       <view class="Footer" slot="footer">
 				<view class="browse">
 					<i-icon type="browse" size="28"/>
 					<text class="browseText">{{item.browseNum}} 人看过</text>
 				</view>
-				<view class="praise" bindtap="praiseHandle" data-good_id="{{item.goodId}}">
+				<view class="praise" bindtap="praiseHandle" data-talk_id="{{item.talkId}}">
 					<i-icon type="praise" size="26"/>
 					<text class="browseText">{{item.praiseNum}} 赞</text>
 				</view>
