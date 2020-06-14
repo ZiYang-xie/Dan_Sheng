@@ -44,3 +44,17 @@
   font-weight: bold;
   margin-top: 20rpx;
 }
+
+.LoginBtn{
+  display: block;
+  margin-top: 15px;
+  margin-left: 260rpx;
+  width: 200rpx;
+  max-width: 200px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #fa8231;
+}

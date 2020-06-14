@@ -1,5 +1,6 @@
 // miniprogram/pages/mine/mine.js
 var app = getApp();
+const { $Toast } = require('../../dist/base/index');
 
 Page({
 
@@ -25,6 +26,8 @@ Page({
       }
     ],
     isLogin: app.globalData.isLogin,
+    spinShow: true,
+    switch: false
   },
   /**
    * 用户点击改变头像事件
@@ -94,6 +97,10 @@ Page({
             success(res) {
               console.log(res.code) //调用wx.login()可获取临时登录凭证code
               if (res.code) {
+                $Toast({
+                  content: '加载中',
+                  type: 'loading'
+                });
                 wx.request({
                   url: app.globalData.baseUrl + '/user/login',
                   data: {
@@ -107,10 +114,18 @@ Page({
                     that.setData({
                       isLogin: app.globalData.isLogin,
                     })
+                    $Toast({
+                      content: '登录成功',
+                      type: 'success'
+                    });
                   }
                 })
               } else {
                 console.log('登录失败！' + res.errMsg)
+                $Toast({
+                  content: '登录失败',
+                  type: 'error'
+                });
               }
             }
           })
@@ -119,6 +134,7 @@ Page({
         }
       }
     })
+
   },
 
   onLoad: function (options) {

@@ -10,7 +10,8 @@
                 wx:for="{{item.list}}" 
                 wx:for-index="in" 
                 wx:key="{{in}}" 
-                wx:for-item="it">
+                wx:for-item="it"
+                bindtap="handleTap">
                 {{it.name}}
             </view>
         </i-index-item>

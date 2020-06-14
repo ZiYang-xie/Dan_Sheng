@@ -6,10 +6,12 @@
 		</view>
     <view class="userName">
 			<p wx:if="{{isLogin === true}}">{{userName}}</p>
-			<p wx:if="{{isLogin === false}}" bindtap="clickLogin">点击登录</p>
 		</view>
-
 	</i-cell>
+
+<p class="LoginBtn" wx:if="{{isLogin === false}}" bindtap="clickLogin">点击登录</p>
+<i-toast id="toast" />
+
 <view wx-if="{{isLogin === true}}">
 	<i-cell title="个人信息" is-link="true" url="./detail/detail">
 		<i-icon slot="icon" type="businesscard" size="28" color="#fa8231" />

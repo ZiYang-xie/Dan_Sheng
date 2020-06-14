@@ -1,22 +1,17 @@
 const campus = require("./ChinaUniversityList");
+const { $Toast } = require('../../../dist/base/index');
+
 Page({
     data : {
         schools : []
     },
+    onLoad(){
+      $Toast({
+        content: '加载中',
+        type: 'loading'
+      });
+    },
     onChange(event){
-      switch(event.detail.index){
-        case 1:
-          wx.pageScrollTo({
-            scrollTop: 100,
-            duration: 10
-          })
-          break;
-        case 14:
-          wx.pageScrollTo({
-            scrollTop: 9999999999,
-            duration: 10
-          })
-      }
       console.log(event.detail.index,'click right menu callback data')
     },
     onReady(){
@@ -43,5 +38,19 @@ Page({
         this.setData({
             schools : this.data.schools
         })
-    }
+    },
+    handleTap(event){
+      const eindex = event.currentTarget.dataset.index;
+      console.log(eindex);
+      const item = this.getCurrentItem(eindex);
+      this.setData({
+          scrollTop : item.top,
+          currentName : item.currentName,
+          isTouches : true
+      })
+      this.triggerCallback({
+          index : eindex,
+          current : item.currentName
+      })
+  },
 });
