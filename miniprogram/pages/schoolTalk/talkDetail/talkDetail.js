@@ -49,8 +49,8 @@ Page({
       success(res) {
         console.log(res.data)
         that.setData({
-          currentTalkInformation : res.data.currentTalkInformation,
-          talkAnswers:res.data.talkAnswers,
+          currentTalkInformation : res.data.data.currentTalkInformation,
+          talkAnswers:res.data.data.talkAnswers,
         })
       }
     });

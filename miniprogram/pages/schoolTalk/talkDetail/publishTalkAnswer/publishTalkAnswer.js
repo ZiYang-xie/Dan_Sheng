@@ -64,7 +64,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl+'/publishTalkAnswer_onShow',
       data:{
-        currentTalkId:that.data.currentTalkId
+        currentTalkId:that.data.data.currentTalkId
       },
       method:"POST",
       success(res) {
