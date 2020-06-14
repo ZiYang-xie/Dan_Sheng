@@ -6,7 +6,6 @@
     "pages/mine/issue/issue",
     "pages/mine/credit/credit",
     "pages/mine/subscription/subscription",
-    "pages/mine/detail/province/province",
     "pages/schoolTalk/schoolTalk",
     "pages/information/information",
     "pages/release/releaseGoods/releaseGoods",
@@ -15,6 +14,17 @@
     "pages/schoolTalk/talkDetail/talkDetail",
     "pages/schoolTalk/talkDetail/publishTalkAnswer/publishTalkAnswer",
     "pages/information/informationDetail/informationDetail"
+  ],
+  "subpackages":[
+    {
+      "root":"detail",
+      "pages":
+      [
+        "pages/province/province",
+        "pages/school/school"
+      ],
+      "independent":true
+    }
   ],
   "tabBar": {
     "custom": true,

@@ -7,6 +7,7 @@
     "i-modal": "../../dist/modal/index",
     "i-card": "../../dist/card/index",
     "i-tabs": "../../dist/tabs/index",
-    "i-tab": "../../dist/tab/index"
+    "i-tab": "../../dist/tab/index",
+    "i-spin": "../../dist/spin/index"
   }
 }

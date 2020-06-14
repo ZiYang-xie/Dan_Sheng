@@ -1,4 +1,4 @@
-export const campus = [
+const campus = [
     {
         "id":"Bg",
         "province": "北京市",
@@ -23876,3 +23876,5 @@ export const campus = [
         ]
     }
 ]
+
+module.exports = campus;
