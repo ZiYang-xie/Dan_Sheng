@@ -5,8 +5,8 @@ Page({
   data: {
     sender:"杨朝辉",
     newInformation:[
-      "what",
-      "哈哈"
+      "你好(*´▽｀)ノノ",
+      "之前卖的书还有货吗"
     ],
   },
   

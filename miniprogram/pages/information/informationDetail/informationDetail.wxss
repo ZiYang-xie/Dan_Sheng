@@ -1,1 +1,25 @@
 /* miniprogram/pages/information/informationDetail/informationDetail.wxss */
+.title
+{
+  margin-top: 15px;
+  text-align: center;
+}
+
+.cards{
+  width: 650rpx!important;
+  height: auto;
+  line-height: 30px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0px 18px 15px !important;
+  box-shadow: 0px 0px 10px rgb(0,0,0,0.1);
+  padding-bottom: 5px!important;
+}
+
+.container
+{
+  margin-top: 15px;
+}

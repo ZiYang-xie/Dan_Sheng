@@ -1,4 +1,5 @@
 const app = getApp();
+const { $Toast } = require('../../dist/base/index');
 
 Page({
   /**
@@ -13,7 +14,35 @@ Page({
       talkPublisher: "吕昌泽",
       browseNum: 10,
       praiseNum: 9,
-    }, ]
+    }, {
+      talkName: "怎么评价复旦大学疫情防控措施",
+      talkIntroduction: "实验课同学返校了，你怎么看待复旦大学疫情防控措施？",
+      talkId: 213,
+      talkPublisher: "谢子飏",
+      browseNum: 12,
+      praiseNum: 2,
+    },{
+      talkName: "你觉得疫情什么时候能够结束呢？",
+      talkIntroduction: "本次疫情世界范围内扩散，导致大家只能在家上网课，你觉得疫情什么时候能够结束？",
+      talkId: 214,
+      talkPublisher: "张三",
+      browseNum: 32,
+      praiseNum: 22,
+    },{
+      talkName: "如何评价网课制度",
+      talkIntroduction: "网课事倍功半啊！",
+      talkId: 215,
+      talkPublisher: "李四",
+      browseNum: 12,
+      praiseNum: 11,
+    },{
+      talkName: "大家喜不喜欢周杰伦的新歌Mojito啊",
+      talkIntroduction: "又是一年一度的周郎才尽（狗头",
+      talkId: 215,
+      talkPublisher: "周杰伦的迷妹",
+      browseNum: 1002,
+      praiseNum: 205,
+    }]
   },
 
   handleChangeScroll({

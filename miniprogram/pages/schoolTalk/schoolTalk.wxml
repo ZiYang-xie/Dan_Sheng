@@ -4,10 +4,12 @@
     <i-tab id='3' key="hotRank" title="热榜"></i-tab>
 </i-tabs>
 
+<i-toast id="toast" />
+
 <view class="cards-wrp">
   <block wx:for="{{currentTalks}}" data-item="item">
-    <i-card i-class-img="cards-img" i-class="cards" i-card-header-title="title" title="{{item.talkName}}" >
-      <view slot="content" bindtap="gotoDetail">简介：{{item.talkIntroduction}}</view>
+    <i-card i-class-img="cards-img" i-class="cards" i-card-header-title="title" title="{{item.talkName}}" bindtap="gotoDetail">
+      <view slot="content">简介：{{item.talkIntroduction}}</view>
       <view class="Footer" slot="footer">
 				<view class="browse">
 					<i-icon type="browse" size="28"/>
