@@ -2,7 +2,7 @@
 <i-cell-group>
     <i-cell title="我的用户名" label="{{userInfo.nickName}}"></i-cell>
     <i-cell title="我的国家" label="{{userInfo.country}}"></i-cell>
-    <i-cell title="我的省份" label="{{userInfo.province}}"></i-cell>
+    <i-cell title="我的省份" label="{{userInfo.province}}" is-link="true" url="./province/province"></i-cell>
     <i-cell title="我的性别" wx-if="{{userInfo.gender === 1}}" label="男"></i-cell>
     <i-cell title="我的性别" wx-if="{{userInfo.gender === 2}}" label="女"></i-cell>
 </i-cell-group>

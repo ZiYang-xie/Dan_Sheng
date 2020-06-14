@@ -2,6 +2,7 @@
   "pages": [
     "pages/secondHand/secondHand",
     "pages/mine/mine",
+    "pages/mine/detail/province/province",
     "pages/schoolTalk/schoolTalk",
     "pages/information/information",
     "pages/release/releaseGoods/releaseGoods",
