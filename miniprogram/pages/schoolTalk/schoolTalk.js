@@ -6,19 +6,19 @@ Page({
    */
   data: {
     currentSubPage: "recommend",
-    currentTalks: [
-      {
-        talkName: "在绩点方面无敌是怎样一种感觉？",
-        talkIntroduction: "来评论我",
-        talkId: 212,
-        talkPublisher: "吕昌泽",
-        browseNum:10,
-        praiseNum:9,
-      },
-    ]
+    currentTalks: [{
+      talkName: "在绩点方面无敌是怎样一种感觉？",
+      talkIntroduction: "来评论我",
+      talkId: 212,
+      talkPublisher: "吕昌泽",
+      browseNum: 10,
+      praiseNum: 9,
+    }, ]
   },
 
-  handleChangeScroll({detail}) {
+  handleChangeScroll({
+    detail
+  }) {
     var currentSubPage = detail.key;
     this.setData({
       currentSubPage: currentSubPage
@@ -29,13 +29,13 @@ Page({
       url: app.globalData.baseUrl + '/schoolTalk_view',
       data: {
         userOpenId: app.globalData.openId,
-        currentSubPage:currentSubPage,
+        currentSubPage: currentSubPage,
       },
       method: "POST",
       success(res) {
         console.log(res.data)
         that.setData({
-          currentTalks: res.data.currentTalks
+          currentTalks: res.data.data.currentTalks
         });
       }
     });
@@ -52,27 +52,27 @@ Page({
     var targetTalkId = e.currentTarget.dataset.talk_id;
     console.log(targetTalkId)
     wx.request({
-      url: app.globalData.baseUrl+'/schoolTalk_praise',
+      url: app.globalData.baseUrl + '/schoolTalk_praise',
       data: {
-        praiseTalkId:targetTalkId,
+        praiseTalkId: targetTalkId,
       },
-      method:"POST",
+      method: "POST",
       success(res) {}
     });
     var length = this.data.currentTalks.length;
     var that = this;
-    for(var i = 0; i<length;i++){
-      if(that.data.currentTalks[i].talkId === targetTalkId){
+    for (var i = 0; i < length; i++) {
+      if (that.data.currentTalks[i].talkId === targetTalkId) {
         var currentTalks = that.data.currentTalks;
-        currentTalks[i].praiseNum +=1;
+        currentTalks[i].praiseNum += 1;
         that.setData({
-          currentTalks : currentTalks
+          currentTalks: currentTalks
         })
         return;
       }
     }
   },
-  
+
   onShow: function () {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
@@ -89,7 +89,7 @@ Page({
       success(res) {
         console.log(res.data)
         that.setData({
-          currentTalks: res.data.currentTalks,
+          currentTalks: res.data.data.currentTalks,
         })
       }
     });

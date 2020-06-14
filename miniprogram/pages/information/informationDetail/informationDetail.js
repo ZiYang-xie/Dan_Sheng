@@ -2,81 +2,30 @@
 const app = getApp()
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    currentSender:app.globalData.currentInformationSender,
+    sender:"杨朝辉",
+    newInformation:[
+      "what",
+      "哈哈"
+    ],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      currentSender:app.globalData.currentInformationSender,
-    })
+  
+  onShow: function () {
+    var that = this;
     wx.request({
-      url: '/informationDetail_onLoad',
+      url: app.globalData.baseUrl+'/informationDetail_onShow',
       data:{
-        userName:this.data.currentUserName,
-        currentSender:this.data.currentSender,
+        senderId:app.globalData.currentInformationSenderId,
+        userOpenId:app.globalData.openId,
       },
+      method:"POST",
       success(res){
-        this.setData({
-
-        })
         console.log(res.data)
+        that.setData({
+          sender:res.data.data.sender,
+          newInformation:res.data.data.newInformation,
+        })
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

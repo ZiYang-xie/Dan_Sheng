@@ -1,11 +1,11 @@
 <i-cell-group>
 	<block wx:for="{{myInformation}}" data-item="item">
 		<i-cell 
-    title="{{item.sender}} {{item.senderNumber}}" 
+    title="{{item.sender}}" 
     label="{{item.lastInformation}}" 
     value="{{item.numberOfNewInformation}}条新消息" 
     bind:click="gotoDetail"
-    data-sender="{{item.sender}}"
+    data-openid="{{item.openid}}"
      is-link>
     </i-cell>
 	</block>

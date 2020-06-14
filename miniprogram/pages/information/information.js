@@ -2,46 +2,29 @@
 const app = getApp()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    currentUserName : app.globalData.userName,
     myInformation :[
       {
         sender:"杨朝辉",
-        senderNumber:"18302010057",
+        openid:"13213213213",
         lastInformation:"哈哈",
-        numberOfNewInformation:0
+        numberOfNewInformation:2
       },
       {
         sender:"沈征宇",
-        senderNumber:"183020100XX",
+        openid:"13213213213",
         lastInformation:"在吗",
         numberOfNewInformation:1
       },
     ]
   },
-  
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  },
 
   gotoDetail(e){
-    app.globalData.currentInformationSender = e.currentTarget.dataset.sender;
-    console.log(app.globalData.currentInformationSender);
+    app.globalData.currentInformationSenderId = e.currentTarget.dataset.openid;
+    console.log(app.globalData.currentInformationSenderId);
     wx.navigateTo({
       url: 'informationDetail/informationDetail',
     })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
   },
 
   /**
@@ -68,58 +51,21 @@ Page({
           }
         }
       })
+    }else{
+      var that = this;
+      wx.request({
+        url: app.globalData.baseUrl+'/information_onShow',
+        data:{
+          userOpenId:app.globalData.openId
+        },
+        method:"POST",
+        success(res){
+          console.log(res.data)
+          that.setData({
+            myInformation:res.data.data.myInformation,
+          })
+        }
+      })
     }
-    
-    this.setData({
-      currentUserName:app.globalData.userName,
-    })
-    wx.request({
-      url: '/information_onLoad',
-      data:{
-        userName:this.data.currentUserName,
-      },
-      success(res){
-        this.setData({
-          myInformation:res.data.myInformation,
-        })
-        console.log(res.data)
-      }
-    })
-    console.log(this.data.currentUserName)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

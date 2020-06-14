@@ -1,2 +1,5 @@
 <!--miniprogram/pages/information/informationDetail/informationDetail.wxml-->
-<view>来自{{currentSender}}的消息</view>
+<view>来自{{sender}}的新消息</view>
+<block wx:for="{{newInformation}}" data-item="item">
+  <view>{{item}}</view>
+</block>
