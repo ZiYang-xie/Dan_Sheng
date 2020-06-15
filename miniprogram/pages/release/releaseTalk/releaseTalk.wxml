@@ -1,5 +1,6 @@
 <!--miniprogram/pages/releasetalks/releasetalks.wxml-->
 <i-panel>
+	<i-toast id="toast" />
 	<!--物品信息填写input-->
 	<view class="input-wrp">
 	<input class="input-title" name="talkName" auto-focus="true" placeholder="讨论名称" bindinput="talkNameInput"/>

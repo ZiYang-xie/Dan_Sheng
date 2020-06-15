@@ -1,6 +1,16 @@
 // miniprogram/pages/releaseTalk/releaseTalk.js
 const {$Message} = require('../../../dist/base/index');
+const { $Toast } = require('../../../dist/base/index');
 const app = getApp();
+
+//sleep函数
+function sleep(delay) {
+  var start = (new Date()).getTime();
+  while ((new Date()).getTime() - start < delay) {
+    continue;
+  }
+}
+
 Page({
 
   /**
@@ -95,10 +105,11 @@ Page({
       method:"POST",
       success(res) {
         console.log(res.data)
-        $Message({
+        $Toast({
           content: '发布成功',
           type: 'success'
         });
+        sleep(800);
         wx.navigateBack(1)
       }
     })
