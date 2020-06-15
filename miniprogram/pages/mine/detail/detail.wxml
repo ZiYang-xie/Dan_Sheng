@@ -1,15 +1,19 @@
 <!--miniprogram/pages/mine/detail/detail.wxml-->
 <i-cell-group>
     <i-cell title="我的用户名" label="{{userInfo.nickName}}">
-    <i-icon slot="icon" type="mine" size="28" color="#495060" />
+        <i-icon slot="icon" type="mine" size="28" color="#495060" />
     </i-cell>
     <i-cell title="我的学校" label="{{userInfo.country}}">
-    <i-icon slot="icon" type="businesscard" size="28" color="#495060" />
+        <i-icon slot="icon" type="businesscard" size="28" color="#495060" />
     </i-cell>
     <i-cell title="我的省份" label="{{userInfo.province}}">
-    <i-icon slot="icon" type="coordinates" size="28" color="#495060" />
+        <i-icon slot="icon" type="coordinates" size="28" color="#495060" />
     </i-cell>
-    <i-cell title="我的性别" wx-if="{{userInfo.gender === 1}}" label="男"></i-cell>
-    <i-cell title="我的性别" wx-if="{{userInfo.gender === 2}}" label="女"></i-cell>
+    <i-cell title="我的性别" wx-if="{{userInfo.gender === 1}}"  label="男">
+        <image class="gender" slot="icon" src="../../../style/icon/userImg/male.png"/>
+    </i-cell>
+    <i-cell title="我的性别" wx-if="{{userInfo.gender === 2}}" label="女">
+        <image class="gender" slot="icon" src="../../../style/icon/userImg/female.png"/>
+    </i-cell>
 </i-cell-group>
 

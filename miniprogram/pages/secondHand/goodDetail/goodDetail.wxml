@@ -17,11 +17,13 @@
 <view class="answerContainer">
 	<i-divider i-class="goodTitle" content="全部留言" size="16"></i-divider>
 	<block  wx:for="{{goodAnswers}}" data-item="item">
-		<view class="aPublisher">{{item.answerPublisher}}</view>
+		<view class="User">
+			<view class="aPublisher">{{item.answerPublisher}}</view>
+		</view>
 		<view class="aContent">{{item.answerContent}}</view>
 		<i-divider line-color="rgba(200,200,200,0.1)"></i-divider>
 	</block>
 </view>
-<input i-class="textArea" type="textarea" placeholder="输入您的留言" bindinput="inputAnswer"/>
-<i-button i-class="btn" type="error" bind:click="publishGoodAnswer">留言</i-button>
+<textarea class="textArea" placeholder="输入您的留言" bindinput="inputAnswer"/>
+<i-button i-class="btn" shape="circle" type="error" bind:click="publishGoodAnswer">留言</i-button>
 <i-message id="message" />
