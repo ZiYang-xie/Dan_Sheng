@@ -69,72 +69,51 @@ Page({
     })
   },
 
-  clickLogin() {
+  clickLogin(e) {
+    console.log(JSON.parse(e.detail.rawData))
+    app.globalData.userInfo=JSON.parse(e.detail.rawData);
+    console.log(app.globalData.userInfo)
+    this.setData({
+      userName: app.globalData.userInfo.nickName,
+      userImgsrc: app.globalData.userInfo.avatarUrl
+    })
     var that = this;
-    wx.showModal({
-      title: '提示',
-      content: '是否允许小程序获取微信授权',
-      success: function (res) {
-        if (res.confirm) {
-          wx.getSetting({
-            success(res) {
-              if (res.authSetting['scope.userInfo']) {
-                //若已经授权，可以直接调用 getUserInfo 获取各个信息
-                wx.getUserInfo({
-                  success: function (res) {
-                    console.log(res.userInfo)
-                    app.globalData.userInfo = res.userInfo
-                    that.setData({
-                      userName: res.userInfo.nickName,
-                      userImgsrc: res.userInfo.avatarUrl
-                    })
-                  }
-                })
-              }
-            }
-          })
-          wx.login({
-            success(res) {
-              console.log(res.code) //调用wx.login()可获取临时登录凭证code
-              if (res.code) {
-                $Toast({
-                  content: '加载中',
-                  type: 'loading'
-                });
-                wx.request({
-                  url: app.globalData.baseUrl + '/user/login',
-                  data: {
-                    code: res.code
-                  },
-                  success(resp) {
-                    var json = JSON.parse(resp.data.data)
-                    console.log(json.openid)
-                    app.globalData.openId = json.openid;
-                    app.globalData.isLogin = true;
-                    that.setData({
-                      isLogin: app.globalData.isLogin,
-                    })
-                    $Toast({
-                      content: '登录成功',
-                      type: 'success'
-                    });
-                  }
-                })
-              } else {
-                console.log('登录失败！' + res.errMsg)
-                $Toast({
-                  content: '登录失败',
-                  type: 'error'
-                });
-              }
+    wx.login({
+      success(res) {
+        console.log(res.code) //调用wx.login()可获取临时登录凭证code
+        if (res.code) {
+          $Toast({
+            content: '加载中',
+            type: 'loading'
+          });
+          wx.request({
+            url: app.globalData.baseUrl + '/user/login',
+            data: {
+              code: res.code
+            },
+            success(resp) {
+              var json = JSON.parse(resp.data.data)
+              console.log(json.openid)
+              app.globalData.openId = json.openid;
+              app.globalData.isLogin = true;
+              that.setData({
+                isLogin: app.globalData.isLogin,
+              })
+              $Toast({
+                content: '登录成功',
+                type: 'success'
+              });
             }
           })
         } else {
-          return
+          console.log('登录失败！' + res.errMsg)
+          $Toast({
+            content: '登录失败',
+            type: 'error'
+          });
         }
       }
     })
-
   },
 
   onLoad: function (options) {

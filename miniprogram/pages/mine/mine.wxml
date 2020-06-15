@@ -9,7 +9,7 @@
 		</view>
 	</i-cell>
 
-<p class="LoginBtn" wx:if="{{isLogin === false}}" bindtap="clickLogin">点击登录</p>
+<button open-type="getUserInfo" wx:if="{{isLogin === false}}" lang="zh_CN" bindgetuserinfo="clickLogin">点击登录</button>
 <i-toast id="toast" />
 
 <view wx-if="{{isLogin === true}}">
