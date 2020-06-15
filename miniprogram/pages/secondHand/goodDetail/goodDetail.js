@@ -65,11 +65,19 @@ Page({
       });
       return;
     }
+    if(app.globalData.openId === null){
+      $Message({
+        content: '请先登录',
+        type: 'error'
+      });
+      return;
+    }
     var that = this;
     wx.request({
       url: app.globalData.baseUrl+'/api/goodDetail_addAnswer',
       data: {
         currentGoodId: app.globalData.currentDetailGood,
+        userOpenId: app.globalData.openId,
         answerPublisher: app.globalData.openId,
         userName:app.globalData.userInfo.nickName,
         answerContent: that.data.myAnswer,
@@ -82,18 +90,23 @@ Page({
         });
       }
     });
-    var list = this.data.goodAnswers;
+
+    var list=[];
+    if(this.data.goodAnswers===[]){
+      list = [];
+    }else{
+      list = this.data.goodAnswers;
+    }
+
     list.push(
       {
-      answerPublisher: app.globalData.userInfo.nickName,
-      answerContent: this.data.myAnswer,
+        answerPublisher: app.globalData.userInfo.nickName,
+        answerContent: this.data.myAnswer,
       }
       );
     this.setData({
       goodAnswers: list,
     })
-
-
   },
 
   onShow: function () {
@@ -111,7 +124,7 @@ Page({
         console.log(res.data)
         that.setData({
           currentGoodInformation: res.data.data.currentGoodInformation,
-          goodAnswers:res.data.data.goodAnswers,
+          goodAnswers:res.data.data.goodAnswer,
         })
       }
     });

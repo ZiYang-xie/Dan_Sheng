@@ -16,14 +16,14 @@
 	<i-cell title="个人信息" is-link="true" url="./detail/detail">
 		<i-icon slot="icon" type="businesscard" size="28" color="#fa8231" />
 	</i-cell>
-	<i-cell title="我的关注" is-link="true" url="./subscription/subscription">
-		<i-icon slot="icon" type="browse" size="28" color="#fa8231" />
-	</i-cell>
 	<i-cell title="我的发布" is-link="true" url="./issue/issue">
 		<i-icon slot="icon" type="createtask" size="28" color="#fa8231" />
 	</i-cell>
   <i-cell title="信誉值" is-link="true" url="./credit/credit">
 		<i-icon slot="icon" type="integral" size="28" color="#fa8231" />
+	</i-cell>
+	<i-cell title="我的关注" is-link="true" url="./subscription/subscription">
+		<i-icon slot="icon" type="browse" size="28" color="#fa8231" />
 	</i-cell>
 </view>
 </i-cell-group>

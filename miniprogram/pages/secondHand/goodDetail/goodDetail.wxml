@@ -8,7 +8,7 @@
 	<view class="goodInfo">
 		<view class="goodIntro">{{currentGoodInformation.goodIntroduction}}</view>
 		<view class="goodDetail">
-			<view>售卖者： {{currentGoodInformation.goodSeller}}</view>
+			<view>售卖者： {{currentGoodInformation.userName}}</view>
 			<view>发布于： {{currentGoodInformation.goodReleaseTime}}</view>
 		</view>
 	</view>

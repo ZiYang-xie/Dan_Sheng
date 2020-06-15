@@ -1,7 +1,8 @@
 <!--miniprogram/pages/information/informationDetail/informationDetail.wxml-->
-<title class="title">{{sender}}</title>
+<!-- <title class="title">{{sender}}</title>
 <view class="container">
 <p class="cards" wx:for="{{newInformation}}" >
 {{item}}
 </p>
-</view>
+</view> -->
+<view class="container">待开发</view>

@@ -3,10 +3,10 @@
     <i-cell title="我的用户名" label="{{userInfo.nickName}}">
     <i-icon slot="icon" type="mine" size="28" color="#495060" />
     </i-cell>
-    <i-cell title="我的学校" label="{{userInfo.country}}" is-link="true" url="../../../detail/pages/school/school">
+    <i-cell title="我的学校" label="{{userInfo.country}}">
     <i-icon slot="icon" type="businesscard" size="28" color="#495060" />
     </i-cell>
-    <i-cell title="我的省份" label="{{userInfo.province}}" is-link="true" url="../../../detail/pages/province/province">
+    <i-cell title="我的省份" label="{{userInfo.province}}">
     <i-icon slot="icon" type="coordinates" size="28" color="#495060" />
     </i-cell>
     <i-cell title="我的性别" wx-if="{{userInfo.gender === 1}}" label="男"></i-cell>

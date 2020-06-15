@@ -29,6 +29,13 @@ Page({
       });
       return;
     }
+    if(app.globalData.openId === null){
+      $Message({
+        content: '请先登录',
+        type: 'error'
+      });
+      return;
+    }
     var that = this;
     wx.request({
       url: app.globalData.baseUrl+'/api/publishTalkAnswer_addAnswer',

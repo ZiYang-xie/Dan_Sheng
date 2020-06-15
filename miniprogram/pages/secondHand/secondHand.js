@@ -53,6 +53,7 @@ Page({
     this.setData({
       currentSubPage: currentSubPage,
     });
+    console.log(currentSubPage)
     var that = this;
     wx.request({
       //将当前页面是推荐还是热榜发给后端
@@ -83,6 +84,7 @@ Page({
       url: app.globalData.baseUrl+'/api/secondHand_view',
       data: {
         userOpenId: app.globalData.openId,
+        currentSubPage: "recommend"
       },
       method:"POST",
       success(res) {
@@ -128,7 +130,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl+'/api/secondHand_praise',
       data: {
-        praiseGoodId:targetGoodId,
+       currentGoodId:targetGoodId,
       },
       method:"POST",
       success(res) {

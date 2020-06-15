@@ -1,5 +1,5 @@
 <!--miniprogram/pages/mine/subscription/subscription.wxml-->
-<view>我的关注</view>
-<block wx:for="{{mySubseriptions}}">
+<view class="container">待开发</view>
+<!-- <block wx:for="{{mySubseriptions}}">
 <view>{{item}}</view>
-</block>
+</block> -->

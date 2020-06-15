@@ -84,7 +84,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/api/schoolTalk_praise',
       data: {
-        praiseTalkId: targetTalkId,
+        currentTalkId: targetTalkId,
       },
       method: "POST",
       success(res) {}
@@ -92,7 +92,7 @@ Page({
     var length = this.data.currentTalks.length;
     var that = this;
     for (var i = 0; i < length; i++) {
-      if (that.data.currentTalks[i].talkId === targetTalkId) {
+      if (that.data.currentTalks[i].id === targetTalkId) {
         var currentTalks = that.data.currentTalks;
         currentTalks[i].praiseNum += 1;
         that.setData({

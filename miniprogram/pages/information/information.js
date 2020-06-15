@@ -5,13 +5,13 @@ Page({
   data: {
     myInformation :[
       {
-        sender:"杨朝辉",
+        sender:"甲",
         openid:"13213213213",
         lastInformation:"哈哈",
         numberOfNewInformation:2
       },
       {
-        sender:"沈征宇",
+        sender:"乙",
         openid:"13213213213",
         lastInformation:"在吗",
         numberOfNewInformation:1

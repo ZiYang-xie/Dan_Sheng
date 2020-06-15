@@ -75,6 +75,13 @@ Page({
       });
       return;
     }
+    if(app.globalData.openId === null){
+      $Message({
+        content: '请先登录',
+        type: 'error'
+      });
+      return;
+    }
     var that = this;
     wx.request({
       url: app.globalData.baseUrl+'/api/release_releaseTalk',
@@ -92,6 +99,7 @@ Page({
           content: '发布成功',
           type: 'success'
         });
+        wx.navigateBack(1)
       }
     })
   },
