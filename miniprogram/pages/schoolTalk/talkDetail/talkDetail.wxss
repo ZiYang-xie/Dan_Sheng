@@ -13,8 +13,8 @@
 }
 
 .answerContainer{
-  padding: 0px;
-  margin: 0;
+  padding: 10px;
+  margin: 10px;
 }
 
 .aPublisherImg{
@@ -28,15 +28,21 @@
 
 .aPublisher{
   display: inline-block;
-  vertical-align: middle;
+  margin-top: -5px;
   font-weight: bold;
   line-height: 50px;
-  padding-inline: 10px;
   height: 100%;
+  padding-inline-start: 20px;
 }
 
 .aContent{
-  margin: 5px 15px 22px 10px;
+  background-color: rgb(150,150,150,0.1);
+  line-height: 30px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  margin: 0 20px 20px 20px;
 }
 
 .btn{
