@@ -73,10 +73,7 @@ Page({
     console.log(JSON.parse(e.detail.rawData))
     app.globalData.userInfo=JSON.parse(e.detail.rawData);
     console.log(app.globalData.userInfo)
-    this.setData({
-      userName: app.globalData.userInfo.nickName,
-      userImgsrc: app.globalData.userInfo.avatarUrl
-    })
+    
     var that = this;
     wx.login({
       success(res) {
@@ -98,6 +95,10 @@ Page({
               app.globalData.isLogin = true;
               that.setData({
                 isLogin: app.globalData.isLogin,
+              })
+              that.setData({
+                userName: app.globalData.userInfo.nickName,
+                userImgsrc: app.globalData.userInfo.avatarUrl
               })
               $Toast({
                 content: '登录成功',
