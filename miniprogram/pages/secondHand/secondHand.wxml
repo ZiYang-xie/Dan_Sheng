@@ -14,9 +14,9 @@
 	<block wx:for="{{currentGoods}}" data-item="item">
 		<i-card  i-class-img="cards-img" i-class="cards" i-card-header-title="title" title="{{item.goodName}}" extra="¥ {{item.goodPrice}}">
 			<view slot="content" bindtap="gotoDetail" data-good_id="{{item.goodId}}">{{item.goodIntroduction}}</view>
-			<view slot="content">售卖人：{{item.userName}}</view>
+			<view slot="content" bindtap="gotoDetail" data-good_id="{{item.goodId}}">售卖人：{{item.userName}}</view>
 			<view class="Footer" slot="footer">
-				<view class="browse">
+				<view class="browse" bindtap="gotoDetail" data-good_id="{{item.goodId}}">
 					<i-icon type="browse" size="28"/>
 					<text class="browseText">{{item.browseNum}} 人看过</text>
 				</view>
