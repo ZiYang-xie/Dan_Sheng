@@ -30,7 +30,7 @@ Page({
   onShow: function () { 
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl+'/mine_credit_onShow',
+      url: app.globalData.baseUrl+'/api/mine_credit_onShow',
       data:{
         userOpenId:app.globalData.openId,
       },

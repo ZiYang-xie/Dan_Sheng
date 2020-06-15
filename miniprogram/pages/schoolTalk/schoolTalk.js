@@ -55,7 +55,7 @@ Page({
     var that = this;
     wx.request({
       //将当前页面的主题发给后端
-      url: app.globalData.baseUrl + '/schoolTalk_view',
+      url: app.globalData.baseUrl + '/api/schoolTalk_view',
       data: {
         userOpenId: app.globalData.openId,
         currentSubPage: currentSubPage,
@@ -64,7 +64,7 @@ Page({
       success(res) {
         console.log(res.data)
         that.setData({
-          currentTalks: res.data.data.currentTalks
+          currentTalks: res.data.data
         });
       }
     });
@@ -72,6 +72,7 @@ Page({
 
   gotoDetail: function (e) {
     app.globalData.currentDetailTalk = e.currentTarget.dataset.talk_id;
+    console.log(app.globalData.currentDetailTalk)
     wx.navigateTo({
       url: 'talkDetail/talkDetail',
     })
@@ -81,7 +82,7 @@ Page({
     var targetTalkId = e.currentTarget.dataset.talk_id;
     console.log(targetTalkId)
     wx.request({
-      url: app.globalData.baseUrl + '/schoolTalk_praise',
+      url: app.globalData.baseUrl + '/api/schoolTalk_praise',
       data: {
         praiseTalkId: targetTalkId,
       },
@@ -110,7 +111,7 @@ Page({
     }
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl + '/schoolTalk_view',
+      url: app.globalData.baseUrl + '/api/schoolTalk_view',
       data: {
         userOpenId: app.globalData.openId,
       },
@@ -118,7 +119,7 @@ Page({
       success(res) {
         console.log(res.data)
         that.setData({
-          currentTalks: res.data.data.currentTalks,
+          currentTalks: res.data.data,
         })
       }
     });

@@ -27,7 +27,7 @@ Page({
   onShow: function () {
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl + '/mine_subscription_onShow',
+      url: app.globalData.baseUrl + '/api/mine_subscription_onShow',
       data: {
         userOpenId: app.globalData.openId,
       },

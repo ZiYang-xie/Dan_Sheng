@@ -1,7 +1,7 @@
 <!--miniprogram/pages/secondHand/goodDetail/goodDetail.wxml-->
 
 <view class="goodContainer">
-	<image class="goodImg" src="{{currentGoodInformation.goodImg}}"></image>
+	<!-- <image class="goodImg" src="{{currentGoodInformation.goodImg}}"></image> -->
 	<view class="goodPrice">{{ currentGoodInformation.goodPrice}} ¥</view>
 	<i-divider i-class="goodTitle" content="物品信息" size="16" line-color="black"
 	color="black"></i-divider>

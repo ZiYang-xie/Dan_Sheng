@@ -54,7 +54,7 @@ Page({
     }else{
       var that = this;
       wx.request({
-        url: app.globalData.baseUrl+'/information_onShow',
+        url: app.globalData.baseUrl+'/api/information_onShow',
         data:{
           userOpenId:app.globalData.openId
         },

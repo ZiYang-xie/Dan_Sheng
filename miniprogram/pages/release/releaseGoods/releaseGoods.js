@@ -98,17 +98,16 @@ Page({
       });
       return;
     }
-    var priceNumber = parseFloat(this.data.goodPrice);
-    console.log(priceNumber)
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl+'/release_releaseGood',
+      url: app.globalData.baseUrl+'/api/release_releaseGood',
       data:{
         userOpenId:app.globalData.openId,
+        userName:app.globalData.userInfo.nickName,
         goodName:that.data.goodName,
         goodIntroduction:that.data.goodIntroduction,
         goodClassification:that.data.goodClassification,
-        goodPrice:priceNumber
+        goodPrice:that.data.goodPrice
       },
       method:"POST",
       success(res) {

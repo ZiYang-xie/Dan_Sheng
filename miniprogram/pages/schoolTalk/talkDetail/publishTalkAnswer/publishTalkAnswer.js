@@ -9,10 +9,7 @@ Page({
   data:{
     userOpenId:app.globalData.openId,
     currentTalkId:app.globalData.currentDetailTalk,
-    currentTalkInformation:{
-      talkName:"如何看待复旦大学的网课制度？",
-      talkPublisher:"吕昌泽"
-    },
+    currentTalkName:app.globalData.currentDetailTalkName,
     myAnswer:"",
   },
 
@@ -34,9 +31,10 @@ Page({
     }
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl+'/publishTalkAnswer_addAnswer',
+      url: app.globalData.baseUrl+'/api/publishTalkAnswer_addAnswer',
       data: {
         userOpenId: that.data.userOpenId,
+        userName:app.globalData.userInfo.nickName,
         currentTalkId:app.globalData.currentDetailTalk,
         answerContent: that.data.myAnswer,
       },
@@ -59,21 +57,10 @@ Page({
     this.setData({
       userOpenId:app.globalData.openId,
       currentTalkId:app.globalData.currentDetailTalk,
+      currentTalkName:app.globalData.currentDetailTalkName,
     })
-    var that = this;
-    wx.request({
-      url: app.globalData.baseUrl+'/publishTalkAnswer_onShow',
-      data:{
-        currentTalkId:that.data.data.currentTalkId
-      },
-      method:"POST",
-      success(res) {
-        console.log(res.data)
-        that.setData({
-          currentTalkInformation : res.data.currentTalkInformation
-        })
-      }
-    })
+    console.log(app.globalData.userInfo)
+    console.log(app.globalData.userInfo.nickName)
   },
 
   /**

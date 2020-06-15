@@ -13,7 +13,7 @@ Page({
   onShow: function () {
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl+'/informationDetail_onShow',
+      url: app.globalData.baseUrl+'/api/informationDetail_onShow',
       data:{
         senderId:app.globalData.currentInformationSenderId,
         userOpenId:app.globalData.openId,

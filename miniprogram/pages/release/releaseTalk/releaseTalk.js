@@ -77,9 +77,10 @@ Page({
     }
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl+'/release_releaseTalk',
+      url: app.globalData.baseUrl+'/api/release_releaseTalk',
       data:{
         userOpenId:app.globalData.openId,
+        userName:app.globalData.userInfo.nickName,
         talkName:that.data.talkName,
         talkIntroduction:that.data.talkIntroduction,
         talkClassification:that.data.talkClassification,

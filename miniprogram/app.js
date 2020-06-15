@@ -16,10 +16,11 @@ App({
     }
 
     this.globalData = {
-      currentInformationSenderId: null,
       currentDetailGood: 0, //存当前货物的id
       currentDetailTalk: 0, //存当前讨论的id
+      currentDetailTalkName:"",//存当前讨论的名字
       tabBarHidden: false,
+      currentInformationSenderId: null,
       isLogin: false,//默认值为false，到时候要改为false
       userInfo: {},
       openId: null,
